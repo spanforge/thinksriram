@@ -9,6 +9,8 @@ export type ContentItem = {
   contentType: ContentType;
   status: "published" | "draft" | "scheduled";
   topic?: string;
+  subtopic?: string;
+  tags?: string[];
   updatedAt?: string;
   correction?: string;
   sources?: string[];
@@ -96,6 +98,8 @@ function readContentFile(filePath: string): ContentItem | undefined {
     slug: typeof data.slug === "string" ? data.slug : defaults.slug,
     contentType: (data.contentType || "idea") as ContentType,
     topic: typeof data.topic === "string" ? data.topic : undefined,
+    subtopic: typeof data.subtopic === "string" ? data.subtopic : undefined,
+    tags: Array.isArray(data.tags) ? data.tags as string[] : [],
     updatedAt: typeof data.updatedAt === "string" ? data.updatedAt : undefined,
     correction: typeof data.correction === "string" ? data.correction : undefined,
     sources: Array.isArray(data.sources) ? data.sources as string[] : [],
@@ -240,6 +244,8 @@ export function renderMarkdown(body: string) {
       const verse: string[] = [];
       while (++i < lines.length && lines[i].trim() !== "::") verse.push(lines[i]);
       blocks.push({ type: "verse", text: verse.join("\n").trim() });
+    } else if (/^(?:-{3,}|\*{3,}|_{3,})$/.test(line)) {
+      blocks.push({ type: "hr", text: "" });
     } else if (/^#{1,6}\s/.test(line)) {
       blocks.push({ type: line.startsWith("###") ? "h3" : "h2", text: line.replace(/^#{1,6}\s+/, "") });
     } else if (/^>\s/.test(line)) {

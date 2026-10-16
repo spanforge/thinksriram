@@ -2,8 +2,9 @@
 import { renderMarkdown } from "@/lib/content";
 
 function Inline({ text }: { text: string }) {
-  return <>{text.split(/(\*\*[^*]+\*\*|\[[^\]]+\]\(https?:\/\/[^\s)]+\)|\x60[^\x60]+\x60)/g).map((part, index) => {
+  return <>{text.split(/(\*\*[^*]+\*\*|\*[^*]+\*|\[[^\]]+\]\(https?:\/\/[^\s)]+\)|\x60[^\x60]+\x60)/g).map((part, index) => {
     if (part.startsWith("**")) return <strong key={index}>{part.slice(2, -2)}</strong>;
+    if (part.startsWith("*") && part.endsWith("*")) return <em key={index}>{part.slice(1, -1)}</em>;
     if (part.startsWith("`")) return <code key={index}>{part.slice(1, -1)}</code>;
     const link = part.match(/^\[([^\]]+)\]\((https?:\/\/[^\s)]+)\)$/);
     return link ? <a key={index} href={link[2]} rel="noopener noreferrer">{link[1]}</a> : <Fragment key={index}>{part}</Fragment>;
@@ -13,6 +14,7 @@ function Inline({ text }: { text: string }) {
 export function Markdown({ body }: { body: string }) {
   return <>{renderMarkdown(body).map((block, index) => {
     const text = <Inline text={block.text} />;
+    if (block.type === "hr") return <hr key={index} />;
     if (block.type === "h2") return <h2 key={index}>{text}</h2>;
     if (block.type === "h3") return <h3 key={index}>{text}</h3>;
     if (block.type === "quote") return <blockquote key={index}>{text}</blockquote>;

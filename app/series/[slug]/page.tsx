@@ -1,7 +1,7 @@
 ﻿import Link from "next/link";
 import { notFound } from "next/navigation";
 import { getAllContent, contentHref } from "@/lib/content";
-import { seriesFor, seriesSlug } from "@/lib/discovery";
+import { seriesFor, seriesSlug, seriesEntryLabel } from "@/lib/discovery";
 export async function generateMetadata({ params }: { params: Promise<{ slug: string }> }) {
   const { slug } = await params;
   const post = getAllContent().find(post => post.series && seriesSlug(post.series) === slug);
@@ -19,9 +19,9 @@ export default async function SeriesIndex({ params }: { params: Promise<{ slug: 
       <p>The verse appears once in Roman transliteration, followed by an English rendering and commentary.</p>
       <p><a href="https://www.kamakoti.org/bhaja/bhaja.html" rel="noopener noreferrer">Read a traditional introduction from Kanchi Kamakoti Peetham</a>.</p>
     </>}
-    <p><Link href={contentHref(items[0])}>Begin with Part 1: {items[0].title} →</Link></p>
+    <p><Link href={contentHref(items[0])}>Begin with {seriesEntryLabel(items[0])}: {items[0].title} →</Link></p>
     <h2>Read in order</h2>
-    <ol className="series-parts">{items.map(item => <li key={item.slug}><Link href={contentHref(item)}>{item.title}</Link><p>{item.description}</p></li>)}</ol>
-    <h2>What’s next?</h2><p>Return to a verse that stayed with you, or try an essay on AI, learning or working life.</p><Link href="/writing?series=standalone">Explore writing beyond this series →</Link>
+    <ol className="series-parts">{items.map(item => <li key={item.slug}><Link href={contentHref(item)}>{seriesEntryLabel(item)}: {item.title}</Link><p>{item.description}</p></li>)}</ol>
+    <h2>What’s next?</h2><p>Explore more essays on AI, learning and working life.</p><Link href="/writing?series=standalone">Explore writing beyond this series →</Link>
   </div>;
 }

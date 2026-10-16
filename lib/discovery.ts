@@ -7,6 +7,9 @@ export function seriesSlug(name: string) {
 export function articleKind(item: ContentItem) {
   return item.genre || (item.series ? "Reflection" : item.contentType === "story" ? "Story" : "Essay");
 }
+export function seriesEntryLabel(item: ContentItem) {
+  return articleKind(item) === "Essay" ? `Essay ${String(item.seriesOrder || 1).padStart(2, "0")}` : `Part ${item.seriesOrder}`;
+}
 export function seriesFor(items: ContentItem[], name: string) {
   return items.filter(item => item.series === name).sort((a, b) => (a.seriesOrder || 0) - (b.seriesOrder || 0));
 }
@@ -18,12 +21,12 @@ export function relatedWriting(items: ContentItem[], item: ContentItem) {
     }).slice(0, 3);
 }
 export function matchesSearch(item: ContentItem, query: string) {
-  const haystack = [item.title, item.excerpt, item.description, item.body, ...item.themes, topicFor(item).label, item.series || ""].join(" ").normalize("NFKC").toLocaleLowerCase();
+  const haystack = [item.title, item.excerpt, item.description, item.body, ...item.themes, ...(item.tags || []), item.subtopic || "", topicFor(item).label, item.series || ""].join(" ").normalize("NFKC").toLocaleLowerCase();
   return query.trim().normalize("NFKC").toLocaleLowerCase().split(/\s+/).filter(Boolean).every(word => haystack.includes(word));
 }
 export function homeWriting(items: ContentItem[]) {
   const chosen: ContentItem[] = [];
-  const eligible = items.filter(item => !item.series);
+  const eligible = items.filter(item => item.series !== "Bhaja Govindam");
   const topics = new Set<string>();
   for (const item of eligible) {
     const topic = topicFor(item).slug;
