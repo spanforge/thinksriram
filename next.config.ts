@@ -1,6 +1,8 @@
 import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
+  // Keep article metadata in the initial head for reliable crawlers and previews.
+  htmlLimitedBots: /.*/,
   outputFileTracingIncludes: {
     "/*": ["./content/**/*"]
   },

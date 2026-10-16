@@ -16,6 +16,8 @@ export type ContentItem = {
   excerpt: string;
   description: string;
   readingTime: number;
+  genre?: "Essay" | "Reflection" | "Story";
+  editorialNote?: string;
   readerNeeds: string[];
   themes: string[];
   featured: boolean;
@@ -83,7 +85,9 @@ function parseFrontmatter(source: string) {
 function readContentFile(filePath: string): ContentItem | undefined {
   const source = fs.readFileSync(filePath, "utf8").replace(/^\uFEFF/, "").replace(/\r\n?/g, "\n");
   if (!source.startsWith("---\n")) return readTextFile(filePath, source);
-  const { data, body } = parseFrontmatter(source);
+  const parsed = parseFrontmatter(source);
+  const data = parsed.data;
+  const body = cleanImportedText(parsed.body);
   const defaults = readTextFile(filePath, typeof data.title === "string" ? `${data.title}\n\n${body}` : body);
   if (!defaults) return undefined;
   return {
@@ -99,7 +103,9 @@ function readContentFile(filePath: string): ContentItem | undefined {
     publishedAt: typeof data.publishedAt === "string" ? data.publishedAt : defaults.publishedAt,
     excerpt: typeof data.excerpt === "string" ? data.excerpt : defaults.excerpt,
     description: String(data.description || data.excerpt || defaults.description),
-    readingTime: typeof data.readingTime === "number" ? data.readingTime : 1,
+    readingTime: Math.max(1, Math.ceil(body.split(/\s+/).length / 200)),
+    genre: typeof data.genre === "string" ? data.genre as ContentItem["genre"] : undefined,
+    editorialNote: typeof data.editorialNote === "string" ? data.editorialNote : undefined,
     readerNeeds: Array.isArray(data.readerNeeds) ? (data.readerNeeds as string[]) : [],
     themes: Array.isArray(data.themes) ? (data.themes as string[]) : [],
     featured: data.featured === true,
@@ -117,7 +123,7 @@ function readContentFile(filePath: string): ContentItem | undefined {
 // A plain text post needs only a title on the first line and the writing below it.
 // Metadata remains supported for the existing archive, but is never required for .txt.
 function readTextFile(filePath: string, suppliedSource?: string): ContentItem | undefined {
-  const source = (suppliedSource ?? fs.readFileSync(filePath, "utf8")).replace(/^\uFEFF/, "").replace(/\r\n?/g, "\n").trim();
+  const source = cleanImportedText((suppliedSource ?? fs.readFileSync(filePath, "utf8")).replace(/^\uFEFF/, "").replace(/\r\n?/g, "\n")).trim();
   if (!source) return undefined;
   const [firstLine, ...remaining] = source.split("\n");
   const title = firstLine.replace(/^#\s+/, "").trim();
@@ -216,8 +222,15 @@ export function contentHref(item: ContentItem) {
   return `/writing/${item.slug}`;
 }
 
+export function cleanImportedText(body: string) {
+  return body.replace(/<\/?(?:w|w14|wp|a|v|o):[^>]*>/g, "")
+    .replace(/^Practical Exercises\s*$/gm, "## Practical exercises")
+    .replace(/^Closing Reflection\s*$/gm, "## Closing reflection")
+    .replace(/ -- /g, " — ");
+}
+
 export function renderMarkdown(body: string) {
-  const lines = body.replace(/\r\n?/g, "\n").split("\n");
+  const lines = cleanImportedText(body).replace(/\r\n?/g, "\n").split("\n");
   const blocks: { type: string; text: string }[] = [];
   const special = (line: string) => /^(?:#{1,6}\s|>\s|[-*]\s|\d+\.\s|::verse)/.test(line.trim());
   for (let i = 0; i < lines.length; i++) {

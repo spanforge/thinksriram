@@ -3,11 +3,14 @@
   "tagline": "Better Thinking. Stronger Careers. Brighter Futures.",
   "welcome": "I’ve spent much of my working life with technology, teams and people learning to do difficult things. I write about careers, learning, AI and the life around work—sharing what I’m reading, noticing and questioning. I hope you find an idea worth carrying into your day. I’m glad you’re here.",
   "email": "sriram@sriramadvisory.com",
-  "linkedin": "",
+  "linkedin": "https://www.linkedin.com/in/sriramadvisory/",
   "logo": "/images/think-sriram-logo.png",
   "featured": [
     "socrates-and-the-art-of-the-right-question",
-    "the-examined-machine",
-    "bhaja-govindam-the-discipline-of-enough"
-  ]
+    "reverse-regret-test",
+    "first-principles-thinking"
+  ],
+  "newsletterUsername": "",
+  "version": "0.2.0",
+  "reviewedAt": "2026-10-16"
 }

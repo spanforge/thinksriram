@@ -45,10 +45,10 @@ function fixMojibake(text) {
     .replace(/Â/g, "");
 }
 
-const paragraphXml = xml.match(/<w:p[\s\S]*?<\/w:p>/g) ?? [];
+const paragraphXml = xml.match(/<w:p(?=[\s>])[\s\S]*?<\/w:p>/g) ?? [];
 const lines = paragraphXml
   .map((paragraph) => {
-    const texts = [...paragraph.matchAll(/<w:t[^>]*>([\s\S]*?)<\/w:t>/g)].map((match) => decodeXml(match[1]));
+    const texts = [...paragraph.matchAll(/<w:t(?=[\s>])[^>]*>([\s\S]*?)<\/w:t>/g)].map((match) => decodeXml(match[1]));
     return fixMojibake(texts.join("")).trim();
   })
   .filter(Boolean);

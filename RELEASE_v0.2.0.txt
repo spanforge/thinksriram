@@ -1,0 +1,74 @@
+﻿RELEASE v0.2.0 - CONTENT AND DISCOVERY REVIEW
+16 October 2026
+
+Preview: http://localhost:3003
+This is a local source release. Nothing has been pushed to GitHub or deployed to Vercel by this task.
+
+Content and formatting
+- Removed leaked Word XML from all eight affected essays, fixed the Word paragraph/text boundary matching in the importer, and added a defensive text cleanup plus a regression check.
+- Repaired Practical exercises and Closing reflection headings. The three Socrates questions are list items, not section headings.
+- Rewrote the Socrates essay as an explicitly interpretive argument: removed unsupported claims about outperforming peers and AI eliminating information bottlenecks, added a clearly hypothetical workplace example, and linked Plato's Apology as the historical source. That source is not presented as proof of a modern workplace outcome.
+- Replaced all 49 card descriptions with distinct reader-facing summaries. Standardised double hyphens to em dashes.
+- Labelled posts Essay, Reflection or Story and added notes distinguishing interpretation, devotional commentary and illustrative fiction.
+- Merged duplicate Roman verse/transliteration sections across all 31 Bhaja Govindam posts. Kept one Roman transliteration instead of inventing a Devanagari edition.
+- Reworked every Living this today section into a concrete illustrative scenario. Removed sweeping health or financial claims from those applications. These are examples, not anecdotes claimed as firsthand experience.
+- Kept every original publication date. Substantive revisions carry 16 October 2026 and a visible revision note. Reading time is calculated from the body rather than trusting old frontmatter estimates.
+
+Homepage and positioning
+- Hero now states who the writing is for and links to the Socrates starter essay, not Part 31.
+- Pinned essays on AI, careers and learning. The cross-topic selection includes only one series entry, Part 1.
+- Added an honest collection note: the Bhaja Govindam series is complete, the most recent original publication is 31 July 2026, and this edition was reviewed in October. No new article or publication date was manufactured, and no unconfirmed publishing schedule is promised.
+- Kept the brand slogan in the footer rather than repeating it in kicker, hero and logo alt text.
+- Added the owner-supplied LinkedIn profile on About and Contact. No employer, current job title, photograph or credentials were invented. Existing professional facts remain those supplied by the owner.
+- Internal topic links use a normal right arrow.
+
+Discovery and following
+- Added full-text archive search across titles, summaries, article bodies, themes and topic labels.
+- Topic, year and series selectors auto-apply. Search also submits normally and works without client-side filtering. A standard Search button supplies a manual fallback. Optional fields have no required markers.
+- Added article counts and up to three recent titles per topic.
+- Added /series and /series/bhaja-govindam with newcomer context, a traditional introduction link, Part 1 and all 31 parts in order.
+- Added a Series filter including Outside a series, reading-order navigation inside series, and a What's next section at the end.
+- Added two or three related-reading links where there are enough related posts. Outside a series, Previous/Next stays within the same topic instead of jumping to an unrelated devotional post.
+- Added Copy article link and an optional LinkedIn share link; there are no embedded social trackers or aggressive share bars.
+
+Contact, editorial integrity and privacy
+- Contact displays the actual email address with a copy control, the supplied LinkedIn profile, and a message composer. The composer prepares a draft for Gmail/Outlook in a browser or lets a reader copy it to any email service. It does not pretend to send a message through an unconfigured backend, and it does not store drafts on the website.
+- A response expectation is explicit: replies depend on availability and no response time is promised.
+- Explained the sriramadvisory.com email domain and the personal nature of the website.
+- Rewrote Editorial notes as current practice, removed internal planning-calendar language, and disclosed the AI-assisted technical cleanup and editorial revision in this edition.
+- Updated Privacy to match the composer, clipboard, share links and newsletter setup.
+
+Email signup - one owner setup step remains
+The footer signup option is present but clearly inactive. No newsletter service account exists yet, so no address is collected and no fake subscription success is shown.
+
+Recommended service: Buttondown, for a writing-focused newsletter with a standard HTML form and double opt-in, without a custom subscriber backend.
+- Create a Buttondown account that you control.
+- Confirm the double-opt-in setting.
+- Put the public Buttondown username into newsletterUsername in content/site.json.
+- Commit that change and let Vercel redeploy.
+The existing signup form then submits directly to Buttondown. No API key is needed in the website.
+References: https://docs.buttondown.com/building-your-subscriber-base and https://docs.buttondown.com/double-opt-in
+
+Technical and usability checks
+- Production build and TypeScript checks passed.
+- Content checks passed for all 49 existing published MDX files, recursive discovery, plain-text compatibility, hidden/draft/future protection and import cleanup.
+- HTTP checks passed for all 49 article URLs, search, series filtering, index and reading-order links, sources, revision notes, related writing, sharing controls, contact options and sitemap.
+- Chrome checks passed at 320/360/820/1440px, including mobile article/archive reflow, 200% text enlargement, menu Escape, keyboard focus, auto-applying series filter and preparing a browser email draft without sending it.
+- Logo alt text is Think Sriram. Responsive image sizes are 112/128px in the header and 112px in the footer; the original approved logo is retained. A small favicon derived from that logo fixes the missing favicon request.
+- Metadata is emitted in the initial document head for crawlers and share previews, rather than relying on streamed metadata.
+- Lighthouse production reports are saved under exports. They are local lab measurements, not field Core Web Vitals or a full accessibility conformance audit. Final scores are recorded separately below once the final run completes.
+
+Commands
+npm run build
+npm run verify:content
+npm run verify:review
+SITE_URL=http://localhost:3003 npm run verify:site
+SITE_URL=http://localhost:3003 npm run verify:review-site
+(On PowerShell, set $env:SITE_URL instead.)
+
+All content remains exportable Markdown/text/JSON. No CMS, public accounts, database or publishing dashboard was added. Uploading article files to GitHub and allowing Vercel to redeploy remains the publishing workflow.
+
+Final Lighthouse 13.5.0 mobile lab run on the production build
+Homepage: Performance 99, Accessibility 100, Best Practices 100, SEO 100.
+Socrates article: Performance 99, Accessibility 100, Best Practices 100, SEO 100.
+Both runs: LCP 1.9 seconds, cumulative layout shift 0. These are local lab results. See VALIDATION_v0.2.0.json.

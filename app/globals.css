@@ -150,3 +150,52 @@ a:focus-visible, button:focus-visible, select:focus-visible { color: #123047; ba
 .topic-directory h2 a { display: inline-block; min-height: 44px; }
 .topic-directory p { margin-bottom: 0; }
 .page-heading > a + h1 { margin-top: 24px; }
+
+/* Review edition: discovery and editorial context, using the existing visual system. */
+.collection-note, .series-context { margin: 32px 0; padding: 24px; background: var(--surface); border-left: 4px solid var(--link); }
+.collection-note h2 { font-size: 1.5rem; }
+.collection-note p:last-of-type, .series-context p { margin-bottom: 16px; }
+.topic-count, .updated-date, .editorial-label, .series-position, .form-note, .result-count { font-size: 1rem; color: var(--text-soft); }
+.updated-date { margin: 12px 0 0; }
+.series-position { margin: 16px 0 0; }
+.article-header .eyebrow { color: var(--text-soft); }
+.series-context { font-size: 1rem; }
+.related-writing { margin-top: 32px; border-top: 1px solid var(--border); padding-top: 24px; }
+.related-writing h2, .series-next h2 { font-size: 1.5rem; }
+.related-writing p, .series-parts p { font-size: 1rem; color: var(--text-soft); margin: 8px 0 20px; }
+.related-writing li { margin-bottom: 20px; }
+.series-parts li { margin-bottom: 24px; }
+.series-index > a + h1 { margin-top: 24px; }
+.series-next { margin-top: 32px; padding: 24px; background: var(--surface); }
+.article-actions { display: flex; gap: 12px 24px; flex-wrap: wrap; align-items: center; margin-top: 32px; font-size: 1rem; }
+.article-actions a { display: inline-flex; align-items: center; min-height: 44px; }
+.text-button { border: 0; padding: 8px 0; background: transparent; color: var(--link); cursor: pointer; text-decoration: underline; text-underline-offset: .18em; min-height: 44px; font-size: 1rem; }
+.text-button:hover { color: var(--link-hover); text-decoration-thickness: 2px; }
+.control-status { font-size: 1rem; margin-inline-start: 12px; }
+.copy-control { display: inline-flex; align-items: center; flex-wrap: wrap; max-width: 100%; }
+.copy-control input { max-width: 100%; }
+.filters .search-field { flex: 1 1 100%; }
+.filters input, .contact-composer input, .contact-composer textarea, .signup-form input, .copy-control input { width: 100%; min-height: 48px; color: var(--text); background: var(--page-bg); border: 2px solid var(--input-border); padding: 8px 12px; font: inherit; border-radius: 0; }
+.contact-composer label, .signup-form label { display: grid; gap: 8px; margin-bottom: 20px; font-size: 1rem; }
+.contact-composer { margin-top: 40px; padding-top: 24px; border-top: 1px solid var(--border); }
+.contact-composer textarea { resize: vertical; line-height: 1.6; }
+.contact-composer button[type=submit], .signup-form button { min-height: 48px; background: var(--link); color: white; border: 2px solid var(--link); padding: 8px 16px; font: inherit; cursor: pointer; }
+.prepared-message { padding: 20px; background: var(--surface); margin: 24px 0; }
+.newsletter { border-top: 1px solid var(--border); margin-top: 24px; padding-top: 24px; max-width: 650px; }
+.newsletter h2 { font-size: 1.4rem; margin-bottom: 16px; }
+.newsletter p { font-size: 1rem; margin-bottom: 16px; }
+.signup-form { display: flex; flex-wrap: wrap; gap: 12px 16px; border: 0; padding: 0; margin: 0 0 16px; align-items: flex-end; }
+.signup-form label { flex: 1 1 250px; margin: 0; }
+.signup-form[disabled] { opacity: 1; }
+.signup-form[disabled] input, .signup-form[disabled] button { color: #52616b; background: #e4e9ec; border-color: #aab5bc; cursor: not-allowed; }
+.visually-hidden { position: absolute; width: 1px; height: 1px; padding: 0; overflow: hidden; clip-path: inset(50%); white-space: nowrap; }
+.topic-previews { padding-left: 24px; margin: 16px 0 0; font-size: 1rem; }
+.topic-previews li { margin-bottom: 8px; }
+input:focus-visible, textarea:focus-visible { outline: 3px solid var(--focus); outline-offset: 2px; border-color: var(--heading); }
+@media(max-width:760px) {
+  .filters .search-field { min-width: 0; }
+  .article-actions { align-items: flex-start; }
+  .prepared-message { padding: 16px; }
+  .contact-composer input, .contact-composer textarea { min-width: 0; }
+  .signup-form button { max-width: 100%; }
+}

@@ -15,3 +15,5 @@ No deployment has been performed. Genuine Reading Room annotations can be added 
 Validation: production build passed. Plain-text unit checks and HTTP checks passed. A file added after build appeared immediately in its article, archive, RSS and sitemap; editing it updated the page, and removing it returned 404. CMS endpoints return 404. The approved public logo matches the supplied file byte for byte. All 49 existing MDX articles are now published.
 
 Content discovery reads .mdx and .txt recursively from all folders under content; hidden and underscore-prefixed files/folders are skipped. New MDX files can use the existing frontmatter format or a simple first-line title and body. No CMS is required.
+
+Superseded for the latest release by RELEASE_v0.2.0.txt. Version 0.2.0 adds full-text search, series navigation, reviewed article content, browser email composing and a newsletter option awaiting owner service setup. See that release document for validation and remaining configuration.

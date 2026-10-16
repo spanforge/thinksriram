@@ -35,3 +35,11 @@ All existing MDX articles are published in their current folders. You do not nee
 MDX ARTICLES
 
 .mdx files are also supported anywhere inside content, including nested folders. Existing frontmatter (title, slug, publication date, excerpt and other fields) is preserved. Metadata is optional: you can also use a title on the first line followed by the article, just like a text file. New MDX files without a status default to published. Explicit draft/scheduled status and future dates still keep new unfinished writing private. Files and folders starting with an underscore or dot are ignored. All 49 existing MDX articles have been marked published at your request.
+
+REVIEW EDITION v0.2.0
+
+Optional MDX fields now include genre (Essay, Reflection or Story), editorialNote, sources, updatedAt and correction. Reading time is calculated from the article body. A series uses series and seriesOrder; an index and reading-order navigation are created automatically for published parts. Search and topic/year/series filters use the same public article collection. Plain text files still need only a title and body.
+
+EMAIL UPDATES
+
+The footer signup option is intentionally inactive until you open a newsletter account. Recommended: Buttondown. Create an account you own, confirm its double-opt-in setting, and set newsletterUsername in content/site.json to your Buttondown username. Upload that change to GitHub and let Vercel redeploy. This public username is not a password or API key. The standard form then submits directly to Buttondown; no custom newsletter backend is needed. Do not add passwords or API keys to site.json.

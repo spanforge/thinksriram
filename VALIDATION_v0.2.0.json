@@ -1,0 +1,40 @@
+{
+  "version": "0.2.0",
+  "reviewDate": "2026-10-16",
+  "environment": "Local production build at localhost:3003; lab results, not live-site field metrics.",
+  "checks": {
+    "build": "passed",
+    "content": "49 published articles; passed",
+    "routes": "all 49 articles and new discovery pages passed",
+    "browser": "320/360/820/1440px, keyboard focus, 200% text enlargement, auto filters and browser email draft passed"
+  },
+  "lighthouse": [
+    {
+      "page": "home",
+      "mode": "mobile",
+      "lighthouse": "13.5.0",
+      "scores": {
+        "performance": 99,
+        "accessibility": 100,
+        "best-practices": 100,
+        "seo": 100
+      },
+      "lcp": "1.9 s",
+      "cls": "0"
+    },
+    {
+      "page": "article",
+      "mode": "mobile",
+      "lighthouse": "13.5.0",
+      "scores": {
+        "performance": 99,
+        "accessibility": 100,
+        "best-practices": 100,
+        "seo": 100
+      },
+      "lcp": "1.9 s",
+      "cls": "0"
+    }
+  ],
+  "remainingSetup": "Create Buttondown account and set newsletterUsername in content/site.json. Subscription option remains visibly inactive until configured."
+}
