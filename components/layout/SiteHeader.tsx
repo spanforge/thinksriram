@@ -1,40 +1,8 @@
-import Link from "next/link";
-
-const navItems = [
-  ["Stories", "/stories"],
-  ["Ideas", "/ideas"],
-  ["Mental Models", "/mental-models"],
-  ["Classics", "/classics"],
-  ["Library", "/library"],
-  ["About", "/about"]
-];
-
-export function SiteHeader() {
-  return (
-    <header className="site-header">
-      <div className="shell header-inner">
-        <Link href="/" aria-label="ThinkSriram home">
-          <strong className="wordmark">ThinkSriram<span>.</span></strong>
-          <span className="tagline">TIMELESS LESSONS FOR BETTER LIVES</span>
-        </Link>
-
-        <nav className="nav" aria-label="Primary navigation">
-          {navItems.map(([label, href]) => (
-            <Link key={href} href={href}>
-              {label}
-            </Link>
-          ))}
-        </nav>
-
-        <div className="header-actions">
-          <Link href="/library" className="search-pill" aria-label="Search the library">
-            <span>Search the library...</span>
-          </Link>
-          <Link href="/library" className="icon-button mobile-menu" aria-label="Open library">
-            Menu
-          </Link>
-        </div>
-      </div>
-    </header>
-  );
-}
+'use client';
+import Link from 'next/link';
+import Image from 'next/image';
+import {usePathname} from 'next/navigation';
+import {useState} from 'react';
+import {site} from '@/lib/site';
+const links=[['Home','/'],['Writing','/writing'],['Topics','/topics'],['Reading Room','/reading'],['About','/about']];
+export function SiteHeader(){const [open,setOpen]=useState(false);const current=usePathname();return <><a className="skip-link" href="#main">Skip to content</a><header className="site-header" onKeyDown={e=>{if(e.key==='Escape'){setOpen(false);document.querySelector<HTMLButtonElement>('.menu-toggle')?.focus();}}}><div className="shell header-inner"><Link className="identity" href="/" aria-label="Think Sriram home">{site.logo?<Image className="site-logo" src={site.logo} alt={`${site.title}: ${site.tagline}`} width={180} height={180} priority sizes="(max-width: 900px) 112px, 128px"/>:<span className="wordmark">{site.title}</span>}</Link><button className="menu-toggle" aria-expanded={open} aria-controls="primary-nav" onClick={()=>setOpen(!open)}>Menu <span aria-hidden="true">{open?'−':'+'}</span></button><nav id="primary-nav" className={open?'nav open':'nav'} aria-label="Primary navigation" onKeyDown={e=>{if(e.key==='Escape'){setOpen(false);document.querySelector<HTMLButtonElement>('.menu-toggle')?.focus();}}}>{links.map(([label,href])=><Link key={href} href={href} aria-current={(href==='/'?current==='/':current.startsWith(href))?'page':undefined} onClick={()=>setOpen(false)}>{label}</Link>)}</nav></div></header></>}

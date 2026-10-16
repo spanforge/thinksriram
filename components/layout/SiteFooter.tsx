@@ -1,30 +1,3 @@
-import Link from "next/link";
-
-const secondaryLinks = [
-  ["Start Here", "/start-here"],
-  ["Privacy", "/privacy"],
-  ["Terms", "/terms"],
-  ["Contact", "mailto:hello@thinksriram.com"]
-];
-
-export function SiteFooter() {
-  return (
-    <footer className="site-footer">
-      <div className="shell footer-inner">
-        <div>
-          <strong className="wordmark">ThinkSriram<span>.</span></strong>
-          <span className="tagline">TIMELESS LESSONS FOR BETTER LIVES</span>
-          <p>Think deeply. Live wisely.</p>
-          <p>&copy; {new Date().getFullYear()} ThinkSriram.</p>
-        </div>
-        <nav className="footer-links" aria-label="Footer navigation">
-          {secondaryLinks.map(([label, href]) => (
-            <Link key={href} href={href}>
-              {label}
-            </Link>
-          ))}
-        </nav>
-      </div>
-    </footer>
-  );
-}
+import Image from 'next/image';
+import Link from 'next/link';import {site} from '@/lib/site';
+export function SiteFooter(){return <footer className="site-footer shell"><div className="footer-top"><div><Link className="identity" href="/" aria-label="Think Sriram home"><Image className="site-logo footer-logo" src={site.logo} alt="Think Sriram" width={160} height={160} sizes="160px"/></Link><p>{site.tagline}</p></div><nav aria-label="Footer navigation">{[['About','/about'],['Archive','/writing'],['Reading Room','/reading'],['Contact','/contact'],['Editorial notes','/editorial-notes'],['Privacy','/privacy'],['RSS','/rss.xml']].map(([label,url])=><Link href={url} key={url}>{label}</Link>)}{site.linkedin&&<a href={site.linkedin}>LinkedIn</a>}</nav></div><div className="footer-bottom"><span>© {new Date().getFullYear()} Sriram</span><span>Written with curiosity. Read at your own pace.</span></div></footer>}

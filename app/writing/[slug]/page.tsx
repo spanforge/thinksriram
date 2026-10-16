@@ -1,0 +1,4 @@
+import {notFound} from 'next/navigation';import {getAllContent} from '@/lib/content';import {ArticlePage} from '@/components/ArticlePage';import {base} from '@/lib/site';
+export const dynamic="force-dynamic";
+export async function generateMetadata({params}:{params:Promise<{slug:string}>}){const {slug}=await params;const p=getAllContent().find(p=>p.slug===slug);if(!p)return {};return {title:p.title,description:p.description,alternates:{canonical:'/writing/'+slug},openGraph:{type:'article',title:p.title,description:p.description,url:base+'/writing/'+slug,publishedTime:p.publishedAt,modifiedTime:p.updatedAt,authors:['Sriram'],images:[{url:'/writing/'+slug+'/opengraph-image',width:1200,height:630}]}}}
+export default async function Post({params}:{params:Promise<{slug:string}>}){const {slug}=await params;const p=getAllContent().find(p=>p.slug===slug);if(!p)notFound();return <ArticlePage item={p}/>}

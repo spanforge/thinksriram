@@ -1,0 +1,18 @@
+{
+  "about": {
+    "title": "A little about me",
+    "intro": "I’m Sriram. I’m curious about how people learn, how technology changes our choices, and how we make sense of work and life. I write to think those questions through—and to leave room for another point of view.",
+    "background": "I’ve spent nearly three decades across technology, business and capability development. That experience is part of the context for my writing. Here, I’m interested in the questions that connect those worlds: how we make decisions, what helps people grow, and what deserves our attention.",
+    "beliefs": [
+      "Good questions deserve patience, especially when a quick answer feels reassuring.",
+      "Experience can offer perspective; it can also make assumptions harder to see.",
+      "Technology raises questions about people and responsibility as well as capability.",
+      "Learning includes being willing to revise what we think we know."
+    ],
+    "independence": "This is my personal website. The views here are my own and do not represent an employer or organisation."
+  },
+  "contact": {
+    "title": "A note is welcome",
+    "body": "An idea that stayed with you, a different perspective, a source I should read, or a correction I should make—thoughtful notes are welcome."
+  }
+}

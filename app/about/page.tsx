@@ -1,16 +1,2 @@
-export default function AboutPage() {
-  return (
-    <div className="shell page-hero">
-      <h1>Why ThinkSriram exists</h1>
-      <p>
-        ThinkSriram is a quiet library of stories, ideas, and mental models for clearer thinking and wiser living.
-        It is built for readers who prefer depth over noise, reflection over reaction, and durable lessons over the
-        urgency of the feed.
-      </p>
-      <p>
-        Each piece follows a simple rhythm: one story, one insight, one mental model. The goal is not to tell you
-        what to think. It is to offer a better place from which to think.
-      </p>
-    </div>
-  );
-}
+import Link from 'next/link';import pages from '@/content/pages.json';export const metadata={title:'About me',alternates:{canonical:'/about'}};
+export default function About(){const p=pages.about;return <div className="prose"><p className="eyebrow">THE PERSON BEHIND THE NOTES</p><h1>{p.title}</h1><p>{p.intro}</p><h2>The experience I bring</h2><p>{p.background}</p><h2>Things I believe—and keep questioning</h2><ul>{p.beliefs.map(b=><li key={b}>{b}</li>)}</ul><h2>A note on my writing</h2><p>Some pieces are research-based; others are observations or reflections. I try to make that distinction clear. Sources, alternative readings and corrections are welcome.</p><p>You can expect writing about careers, AI and people, education, professional life, and occasional reflections beyond work.</p><p>{p.independence}</p><p><Link href="/editorial-notes">How I approach sources and corrections →</Link></p><p><Link href="/contact">Get in touch →</Link></p></div>}

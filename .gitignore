@@ -8,6 +8,7 @@ lerna-debug.log*
 .pnpm-debug.log*
 
 # Project files
+exports/
 ChatGPT Image Jul 13, 2026, 05_28_31 PM.png
 *.md
 
@@ -142,3 +143,4 @@ thinksriram.zip
 Bhaja_Govindam_2026.docx
 Bhaja_Govindam_Timeless (2).docx
 The_Examined_Machine_FINAL.docx
+Think_Sriram_Personal_Website_Specification_v4.docx

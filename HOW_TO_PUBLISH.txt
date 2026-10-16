@@ -1,0 +1,37 @@
+PUBLISHING ON THINK SRIRAM
+
+1. Write your article in any text editor, such as Notepad.
+2. Put its title on the first line. Leave a blank line, then write the article.
+3. Save it as a UTF-8 .txt file directly inside the content folder.
+
+Example filename: my-new-article.txt
+
+Example contents:
+
+My new article
+
+This is the first paragraph.
+
+This is another paragraph. Leave a blank line between paragraphs.
+
+That is all you need. The website creates the page, URL, short description and archive entry. No CMS, login, database or metadata is needed.
+
+Optional formatting:
+- A section heading can start with ## followed by a space.
+- A bullet can start with a dash and a space.
+- A numbered list can use 1. 2. 3.
+- **Bold words** and [a link](https://example.com) are supported.
+
+Dates: normally the file's last-modified date is used. For a fixed date, start the filename with a date, such as 2026-10-16-my-new-article.txt. Dates are displayed in India time. Files with future dates remain hidden until that date.
+
+Keep the filename the same when editing to preserve the article link. Use a different filename for each article. Non-English titles and filenames are supported. The article URL comes from the filename.
+
+To keep something private, start its filename with an underscore, such as _unfinished-note.txt, or keep it outside content. Empty files and files containing only a title are not published.
+
+On a running Next.js server, uploaded files are read on the next page request. Upload to the server's content folder, not just your own computer. If the host deploys this repository, upload or commit the file to content there and let the host deploy the update. A local change cannot change the live website by itself.
+
+All existing MDX articles are published in their current folders. You do not need to convert them. New files explicitly marked draft or scheduled remain private.
+
+MDX ARTICLES
+
+.mdx files are also supported anywhere inside content, including nested folders. Existing frontmatter (title, slug, publication date, excerpt and other fields) is preserved. Metadata is optional: you can also use a title on the first line followed by the article, just like a text file. New MDX files without a status default to published. Explicit draft/scheduled status and future dates still keep new unfinished writing private. Files and folders starting with an underscore or dot are ignored. All 49 existing MDX articles have been marked published at your request.

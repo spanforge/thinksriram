@@ -1,0 +1,23 @@
+THINK SRIRAM: CONTENT-FIRST UI/UX REVIEW
+
+Sources reviewed
+- Nielsen Norman Group, Legibility, Readability, and Comprehension: https://www.nngroup.com/articles/legibility-readability-comprehension/
+- GOV.UK Design System, Paragraphs: https://design-system.service.gov.uk/styles/paragraphs/
+- GOV.UK Design System, Links: https://design-system.service.gov.uk/styles/links/
+- GOV.UK Design System, Colour: https://design-system.service.gov.uk/styles/colour/
+- W3C WCAG 2.2, Contrast: https://www.w3.org/WAI/WCAG22/Understanding/contrast-minimum.html
+- W3C WCAG 2.2, Reflow: https://www.w3.org/WAI/WCAG22/Understanding/reflow.html
+- W3C WCAG 2.2, Target size: https://www.w3.org/WAI/WCAG22/Understanding/target-size-minimum.html
+
+Application
+1. Plain white reading backgrounds and dark text, with the approved brand's navy headings and teal links. Neutral surfaces organise forms and footer. Removed full-page colour washes, decorative gradients, multicoloured cards, oversized rounded panels and decorative colour bars.
+2. 19px body text in relative units on desktop and mobile, 1.65-1.7 line height, left alignment and an article measure capped at 70ch. Conventional serif headings and standard sans-serif body fonts.
+3. One consistent type/spacing system, smaller header and homepage introduction, and visible chronological article lists. Shorter navigation labels remain unchanged and predictable.
+4. Underlined content links; active navigation uses a visible underline/border and bold text. Controls have high-contrast borders. Keyboard focus has a yellow background and dark outline. Navigation and standalone controls have 44-48px targets.
+5. Responsive single-column reading, working skip link and mobile menu, no sticky overlay obscuring text, no forced animations. All content remains selectable and browser text enlargement is supported.
+6. The existing logo is unchanged. All 49 MDX articles and the simple folder-based publishing workflow are retained.
+
+These are established design principles applied to this site, not a claim that one palette is an industry-mandated standard. GOV.UK's implementation, fonts and government branding were not copied. A full WCAG audit and testing with real readers are separate from these implementation checks.
+
+Verification completed
+Chrome checks passed for the nine main page types, mobile/tablet/desktop layouts, 320px article and archive reflow, 200% text enlargement, keyboard focus and mobile menu Escape. Text/background contrast samples range from 5.86:1 to 12.97:1, above the 4.5:1 AA minimum for normal text. The build validates CSS compilation and TypeScript. These checks are not a complete WCAG audit.

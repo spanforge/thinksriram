@@ -1,8 +1,1 @@
-export default function PrivacyPage() {
-  return (
-    <div className="shell page-hero">
-      <h1>Privacy</h1>
-      <p>ThinkSriram is designed to be quiet and respectful. No intrusive tracking, no popups, and no selling reader data.</p>
-    </div>
-  );
-}
+import copy from '@/content/editorial.json';import {renderMarkdown} from '@/lib/content';export const metadata={title:'Privacy',alternates:{canonical:'/privacy'}};export default function Page(){return <div className="prose"><h1>Privacy</h1>{renderMarkdown(copy.privacy).map((b,i)=>b.type==='h2'?<h2 key={i}>{b.text}</h2>:<p key={i}>{b.text}</p>)}</div>}

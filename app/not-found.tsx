@@ -1,11 +1,1 @@
-import Link from "next/link";
-
-export default function NotFound() {
-  return (
-    <div className="shell page-hero">
-      <h1>You took a path that ends here.</h1>
-      <p>Some wrong turns still help us find our way back.</p>
-      <Link className="pill pill-primary" href="/library">Return to the library</Link>
-    </div>
-  );
-}
+import Link from 'next/link';export default function NotFound(){return <div className="prose not-found"><p className="eyebrow">A MISSING PAGE</p><h1>Nothing here just yet.</h1><p>This page may have moved, or the writing may not be published.</p><Link href="/writing">Return to the writing →</Link></div>}

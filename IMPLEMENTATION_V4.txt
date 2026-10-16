@@ -1,0 +1,17 @@
+THINK SRIRAM - SIMPLIFIED WEBSITE
+
+The approved Think Sriram_ Brighter Futures.png is used unchanged in the header and footer. Publishing uses plain .txt files in content. See HOW_TO_PUBLISH.txt for the complete short guide.
+
+There is no CMS, editorial login, external editor script or database. All 49 existing MDX articles are published at your request. New files with explicit draft/scheduled status remain private. New text posts need only a title and body. Underscore-prefixed files and incomplete posts stay private.
+
+Server-rendered public pages read the content folder on request. Files uploaded to a running server appear without a rebuild. On repository-based hosting, the host must deploy uploaded repository files. Hosting and deployment are not configured by this change.
+
+Reading uses large text, generous line spacing, a narrow single column, responsive navigation, keyboard focus indicators, semantic paragraphs, headings and lists. Sources and corrections on existing articles remain supported. The contact email is sriram@sriramadvisory.com.
+
+Commands: npm run dev, npm run build, npm run verify:content. With a server on port 3104, npm run verify:site checks public routes and sharing images. npm run export:content makes a portable copy of the writing and media.
+
+No deployment has been performed. Genuine Reading Room annotations can be added when available. The refreshed design was checked in Chrome at 360px, 820px and 1440px, including menu Escape behavior and mobile article text. Sample text/background contrast pairs pass 4.5:1. This is not a full WCAG audit.
+
+Validation: production build passed. Plain-text unit checks and HTTP checks passed. A file added after build appeared immediately in its article, archive, RSS and sitemap; editing it updated the page, and removing it returned 404. CMS endpoints return 404. The approved public logo matches the supplied file byte for byte. All 49 existing MDX articles are now published.
+
+Content discovery reads .mdx and .txt recursively from all folders under content; hidden and underscore-prefixed files/folders are skipped. New MDX files can use the existing frontmatter format or a simple first-line title and body. No CMS is required.
