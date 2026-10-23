@@ -11,9 +11,11 @@
     "export:content": "node scripts/export-content.cjs",
     "verify:site": "node scripts/verify-site.cjs",
     "verify:review": "node scripts/verify-review.cjs",
-    "verify:review-site": "node scripts/verify-review-site.cjs"
+    "verify:review-site": "node scripts/verify-review-site.cjs",
+    "verify:career": "node scripts/verify-career.cjs"
   },
   "dependencies": {
+    "@cashfreepayments/cashfree-js": "file:vendor/cashfreepayments-cashfree-js-1.0.7.tgz",
     "next": "^15.4.0",
     "react": "^19.1.0",
     "react-dom": "^19.1.0"

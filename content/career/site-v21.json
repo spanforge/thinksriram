@@ -1,0 +1,235 @@
+{
+  "home": {
+    "eyebrow": "Sriram Srinivasan · Founder of Sriram Advisory",
+    "title": "When the same problem keeps returning, look beyond the usual explanation.",
+    "summary": "I help business owners and leaders see persistent problems differently, uncover overlooked causes and find practical ways forward.",
+    "experience": "Work directly with Sriram Srinivasan. Bringing 30 years of experience across engineering, delivery, commercial responsibility and building a business.",
+    "situationsTitle": "Recognise the problem. Question the explanation.",
+    "situationsIntro": "These are the kinds of situations where I can help.",
+    "exampleIntroTitle": "A different question can change the next step.",
+    "exampleIntro": "If a team misses commitments, productivity training may seem like the answer. I would first examine where the work gets interrupted, where decisions wait and what creates rework.",
+    "processTitle": "From a difficult question to a useful next step",
+    "process": [
+      {
+        "title": "Understand",
+        "body": "Clarify the situation, the evidence and the outcome that matters."
+      },
+      {
+        "title": "Reframe",
+        "body": "Test the initial explanation and consider what else could account for the problem."
+      },
+      {
+        "title": "Choose",
+        "body": "Compare practical options and agree what to try first."
+      },
+      {
+        "title": "Act and review",
+        "body": "Make ownership clear, help with the agreed work and examine what changes."
+      }
+    ],
+    "perspectiveTitle": "Look wider. Test the explanation. Make the next move practical.",
+    "perspectiveIntro": "I bring engineering, delivery, commercial and business-owner perspectives to the same question. Here are other ways that can help examine a familiar problem.",
+    "perspectives": [
+      {
+        "title": "A delivery problem may begin before delivery.",
+        "body": "When commitments keep slipping, I would examine the sales promise, assumptions and handover alongside the delivery workflow.",
+        "question": "What was agreed, and what did the team inherit?"
+      },
+      {
+        "title": "An AI decision starts with the work.",
+        "body": "Before choosing a tool, I would examine the task, the constraint and how a change could be evaluated.",
+        "question": "What needs to improve, and how would we know?"
+      }
+    ]
+  },
+  "example": {
+    "label": "Illustrative example — not a client case study",
+    "title": "Does this team need training or fewer interruptions?",
+    "qualification": "This would be a hypothesis to test. If the evidence points to a skill gap, training may be the right intervention. The purpose is to find a useful explanation before committing to a solution."
+  },
+  "continuation": {
+    "sprintTitle": "Start with one problem. Leave with a reasoned next move.",
+    "sprintSummary": "The Problem-Solving Sprint is the starting point for one recurring problem or difficult decision. Together, we examine the evidence, test competing explanations and choose a practical response.",
+    "experienceTitle": "A wider perspective, grounded in experience",
+    "experienceBody": "My work has connected software engineering at Polaris, delivery and commercial responsibility at Wipro, running my own ecommerce venture and AI capability building. I use those perspectives to examine the connections that can be missed when a problem is viewed through one function alone.",
+    "experienceClosing": "You work directly with me. I explain my reasoning, make assumptions visible and help turn the agreed decision into action.",
+    "thinkingTitle": "Before choosing a solution, examine the explanation.",
+    "thinkingIntro": "Ideas and practical questions for seeing familiar work differently.",
+    "contactTitle": "What keeps getting in the way?",
+    "contactBody": "Tell me what keeps happening, what you have tried and what you want to change. A short description is enough; we can clarify the problem together."
+  },
+  "work": {
+    "title": "Find a better explanation. Choose a practical response.",
+    "summary": "Start with a recurring delivery or operating problem, or a decision where the usual answers are not helping. I work with you to examine the evidence, explore overlooked connections and decide what to do next.",
+    "fitTitle": "Where I can be most useful",
+    "fit": "Recurring operating problems. Busy teams making slow progress. Gaps between customer promises and execution. Decisions about technology, learning or change that need a clearer rationale.",
+    "fitClosing": "My experience spans engineering, delivery, commercial responsibility, capability building and running a business. The first discussion establishes how that experience can help with your particular challenge.",
+    "agreementTitle": "What we agree before starting",
+    "agreement": "The problem and intended outcome; people involved; evidence to review; deliverables; schedule; fee; and each person’s responsibilities. If the work needs a different specialist, I will say so.",
+    "boundary": "You receive advice and agreed support grounded in the available evidence. Business outcomes also depend on the decisions made, implementation and conditions outside the engagement.",
+    "healthTitle": "Looking specifically at delivery health?",
+    "healthSummary": "The Business and Delivery Health Check is a diagnostic review of one delivery area, with findings and a prioritised 90-day action plan."
+  },
+  "sprint": {
+    "title": "Problem-Solving Sprint",
+    "tagline": "Look beyond the first explanation. Decide what to do next.",
+    "summary": "Work directly with me to examine one recurring problem or difficult decision. We test the initial explanation, look for overlooked causes and turn the findings into a practical next move.",
+    "fitTitle": "A useful fit when",
+    "fit": "A problem keeps returning; the team has competing explanations; a proposed solution needs testing; or the available information is not producing a clear decision.",
+    "deliverablesTitle": "What you receive",
+    "deliverables": "A problem brief describing the situation, intended outcome and constraints. A decision note setting out the evidence, assumptions, options and recommended direction. A 30-day action plan with agreed owners, first steps and review measures. A readout to discuss the findings and decisions.",
+    "processTitle": "How we work",
+    "process": "We agree the question, intended outcome and boundaries. You bring the context and access to agreed participants and materials. I examine the evidence, look across the technical, commercial and operating factors, and test competing explanations. We discuss the options and finish with an action plan and a scheduled review of the first steps.",
+    "scopeTitle": "Scope and timing",
+    "scope": "The Sprint covers one challenge and an agreed set of participants and materials. The proposal confirms the timetable, evidence required, fee and review date. Implementation beyond the agreed review is scoped separately.",
+    "exclusionsTitle": "What the Sprint does not include",
+    "exclusions": "An open-ended organisational review, outsourced delivery, technical certification or a guaranteed business result. Where the next step needs a specialist, that requirement will be made clear.",
+    "closing": "Discuss the problem before choosing the engagement."
+  },
+  "implementation": {
+    "title": "Help the agreed change take hold",
+    "summary": "A recommendation becomes useful when someone can act on it. I help turn an agreed decision into a defined piece of work with clear ownership, review points and a practical handover.",
+    "examplesTitle": "Examples of support",
+    "examples": "Simplifying a reporting process. Clarifying a sales-to-delivery handover. Establishing a decision and review routine. Piloting a capability programme. Helping a team evaluate a technology use case.",
+    "agreementTitle": "What we agree",
+    "agreement": "A specific work package, outputs, responsibilities, time commitment and completion criteria. Your team retains responsibility for operating decisions and ongoing delivery. I take responsibility for the advisory, facilitation and artefacts explicitly included in the engagement.",
+    "deliverablesTitle": "What you receive",
+    "deliverables": "An agreed work plan, the documents or working practices defined in scope, progress reviews and a handover note identifying what is complete and what still needs attention.",
+    "boundary": "This is scoped support, not an unlimited delivery commitment. It can follow a Sprint or begin from an existing decision that is clear enough to implement."
+  },
+  "workshop": {
+    "title": "Understand the issue together. Practise a useful response.",
+    "summary": "A focused workshop helps a team work through a real challenge and leave with a shared understanding and practical actions.",
+    "themesTitle": "Workshop themes",
+    "themes": "Framing the right problem. Making complex ideas understandable. Improving decisions and ownership. Connecting learning to work. Examining an AI use case before committing to it.",
+    "deliverablesTitle": "What you receive",
+    "deliverables": "A discovery discussion, a tailored agenda, facilitated exercises using an agreed example, and a short action summary. The proposal confirms participants, session format, duration and follow-up.",
+    "boundary": "Workshops use approved examples and material. They do not require participants to share confidential information in public tools."
+  },
+  "about": {
+    "title": "I look for what the usual explanation leaves out.",
+    "summary": "I am Sriram Srinivasan, founder of Sriram Advisory. My 30-year background connects software engineering at Polaris, delivery and practice leadership at Wipro, pre-sales, entrepreneurship and AI enablement.",
+    "connections": "These areas influence one another. A delivery problem can begin with an unclear promise. A learning problem can begin with the way work is assigned. A technology decision can become easier when the business question is made more precise.",
+    "approach": "I look across technical, commercial and operating perspectives, ask what has been overlooked and test alternative explanations against the evidence. The aim is a useful decision and a practical way to learn from what happens next.",
+    "processTitle": "How I work",
+    "process": "I explain the reasoning behind a recommendation. I distinguish evidence from assumptions. I make the scope and responsibilities explicit. I help with the agreed next steps and review what changes.",
+    "spanforgeTitle": "Building as well as advising",
+    "spanforge": "Alongside Sriram Advisory, I am developing Spanforge, focused on testing and security tools for AI agents."
+  },
+  "business": {
+    "title": "A fresh perspective on persistent business problems",
+    "summary": "I help business owners and leaders examine recurring problems, challenge familiar assumptions and connect what happens across customers, teams and operations.",
+    "body": "Start with the problem you need to resolve. A Problem-Solving Sprint can clarify the decision; a Business and Delivery Health Check can examine a defined delivery area; agreed implementation support can help put the chosen changes into practice."
+  },
+  "thinking": {
+    "title": "A different way to examine familiar problems",
+    "summary": "Before choosing a solution, examine the explanation. Writing on the assumptions, overlooked connections and practical questions that can change how we approach work."
+  },
+  "resources": {
+    "title": "Practical resources for work and career decisions",
+    "summary": "Use free worksheets, decision templates and sample consulting outputs to move a business question forward. Explore the separate career collection for assessments, role guides and research."
+  },
+  "careers": {
+    "title": "Make your next career decision with better context",
+    "summary": "Explore assessments, guides and research for professionals navigating changing roles, technology and expectations. These resources help structure your thinking; they do not predict or guarantee a career outcome."
+  },
+  "contact": {
+    "title": "What keeps getting in the way?",
+    "summary": "Tell me what keeps happening, what you have tried and what you want to change. You do not need a diagnosis or a preferred solution to begin.",
+    "warning": "Please do not include confidential project material, passwords, personal records or client-identifying information in this first message.",
+    "success": "Thank you. Your enquiry has been received. Sriram will review it and reply by email about a suitable next step.",
+    "failure": "Your enquiry could not be submitted. Your text is still here. Please try again, or email sriram@sriramadvisory.com."
+  },
+  "situations": [
+    [
+      "The same delivery issue keeps returning.",
+      "The fixes help briefly. You need to understand what keeps recreating the problem."
+    ],
+    [
+      "Everyone is busy, but progress is slow.",
+      "You need to see where effort goes and what prevents work from moving."
+    ],
+    [
+      "The proposed solution feels premature.",
+      "Before investing in training, tools or AI, you want to test whether it addresses the actual constraint."
+    ]
+  ],
+  "exampleStages": [
+    [
+      "Starting request",
+      "“Our team is missing commitments. We need productivity training.”"
+    ],
+    [
+      "What I would examine",
+      "How many tasks are active, where work waits, how priorities change and how much work must be repeated."
+    ],
+    [
+      "An alternative explanation",
+      "The team may know how to do the work but lack enough uninterrupted time and timely decisions."
+    ],
+    [
+      "A first experiment",
+      "Limit concurrent work for one team, assign an owner to blocked decisions and review progress weekly."
+    ],
+    [
+      "What would count as progress",
+      "Shorter completion times, fewer blocked items and less rework, without shifting the burden elsewhere."
+    ]
+  ],
+  "services": [
+    {
+      "slug": "problem-solving-sprint",
+      "title": "Problem-Solving Sprint",
+      "summary": "Examine one problem, test competing explanations and choose a practical response. Receive a problem brief, decision note and 30-day action plan.",
+      "label": "Explore the Sprint",
+      "interest": "sprint",
+      "enabled": true
+    },
+    {
+      "slug": "implementation-support",
+      "title": "Implementation Support",
+      "summary": "Turn an agreed recommendation into a defined piece of work, with owners, review points and a clear handover.",
+      "label": "Explore implementation support",
+      "interest": "implementation",
+      "enabled": true
+    },
+    {
+      "slug": "team-workshops",
+      "title": "Team Workshops",
+      "summary": "Help a team understand a difficult issue and practise applying a useful approach to its own work.",
+      "label": "Explore workshops",
+      "interest": "workshop",
+      "enabled": true
+    }
+  ],
+  "faq": [
+    [
+      "Do I need to know exactly what the problem is?",
+      "No. Describe what is happening and what you want to improve. The first discussion helps establish the question and whether I can be useful."
+    ],
+    [
+      "Who do you work with?",
+      "Business owners, leaders and teams facing recurring problems or difficult decisions. My background includes technology, enterprise delivery, commercial work and entrepreneurship. We begin by checking whether that experience fits your challenge."
+    ],
+    [
+      "Will you help us implement the recommendation?",
+      "Yes, where the work fits my experience and we agree a defined scope. Implementation support is a separate commitment with clear outputs and responsibilities. It is not automatically included in a diagnostic review."
+    ],
+    [
+      "How are fees and timing agreed?",
+      "The proposal confirms the work, deliverables, schedule and fee before the engagement begins. Sending an enquiry does not commit you to a paid service."
+    ],
+    [
+      "How do you use AI?",
+      "AI may help organise agreed information and explore possible interpretations. I review the evidence and take responsibility for the advice. Any use of client material is agreed in advance; sensitive material is not entered into public AI tools by default."
+    ],
+    [
+      "What should I send first?",
+      "A short description of the situation is enough. Please do not send confidential files or personal records with the initial enquiry. We can agree what evidence is needed later."
+    ],
+    [
+      "Do you guarantee an outcome?",
+      "I commit to the agreed work and deliverables. Business outcomes also depend on implementation, decisions and conditions outside the engagement."
+    ]
+  ]
+}
