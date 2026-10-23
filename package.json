@@ -15,7 +15,7 @@
     "verify:career": "node scripts/verify-career.cjs"
   },
   "dependencies": {
-    "@cashfreepayments/cashfree-js": "file:vendor/cashfreepayments-cashfree-js-1.0.7.tgz",
+    "@cashfreepayments/cashfree-js": "1.0.7",
     "next": "^15.4.0",
     "react": "^19.1.0",
     "react-dom": "^19.1.0"
