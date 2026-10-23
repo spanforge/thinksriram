@@ -12,7 +12,8 @@
     "verify:site": "node scripts/verify-site.cjs",
     "verify:review": "node scripts/verify-review.cjs",
     "verify:review-site": "node scripts/verify-review-site.cjs",
-    "verify:career": "node scripts/verify-career.cjs"
+    "verify:career": "node scripts/verify-career.cjs",
+    "verify:career-browser": "node scripts/verify-career-browser.cjs"
   },
   "dependencies": {
     "@cashfreepayments/cashfree-js": "1.0.7",

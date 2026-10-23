@@ -1,7 +1,7 @@
 "use client";
 
-import { useState, useRef, useEffect, useCallback } from "react";
-import { load } from "@cashfreepayments/cashfree-js";
+import { useState, useRef, useEffect, useCallback, useId } from "react";
+import { createPortal } from "react-dom";
 import { track } from "@/lib/career/analytics";
 
 interface Props {
@@ -25,6 +25,8 @@ export default function CashfreeCheckout({
   emailNote = "Your purchase details will be sent to this email.",
   footerNote = "Secured by Cashfree Payments. Your data is encrypted. One-time payment.",
 }: Props) {
+  const checkoutId = useId();
+  const triggerRef = useRef<HTMLButtonElement>(null);
   const [open, setOpen] = useState(false);
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
@@ -36,9 +38,15 @@ export default function CashfreeCheckout({
   const dialogRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
-    if (open) {
-      setTimeout(() => firstInputRef.current?.focus(), 50);
-    }
+    if (!open) return;
+    const previousOverflow = document.body.style.overflow;
+    document.body.style.overflow = "hidden";
+    const timer = setTimeout(() => firstInputRef.current?.focus(), 0);
+    return () => {
+      clearTimeout(timer);
+      document.body.style.overflow = previousOverflow;
+      triggerRef.current?.focus({ preventScroll: true });
+    };
   }, [open]);
 
   const handleKeyDown = useCallback(
@@ -106,12 +114,14 @@ export default function CashfreeCheckout({
       const env = (process.env.NEXT_PUBLIC_CASHFREE_ENV ?? "sandbox") as
         | "sandbox"
         | "production";
+      const { load } = await import("@cashfreepayments/cashfree-js");
       const cashfree = await load({ mode: env });
 
       await cashfree.checkout({
         paymentSessionId: data.payment_session_id,
         redirectTarget: "_self",
       });
+      setLoading(false);
     } catch {
       setError("Something went wrong. Please try again.");
       setLoading(false);
@@ -121,6 +131,11 @@ export default function CashfreeCheckout({
   return (
     <>
       <button
+        ref={triggerRef}
+        type="button"
+        data-checkout-product={productName}
+        data-checkout-amount={amount}
+        aria-haspopup="dialog"
         onClick={() => {
           track("Checkout Start", { product: productName, amount });
           setOpen(true);
@@ -138,8 +153,9 @@ export default function CashfreeCheckout({
         {buttonLabel}
       </button>
 
-      {open && (
+      {open && createPortal(
         <div
+          className="career-checkout-overlay"
           style={{
             position: "fixed",
             inset: 0,
@@ -156,7 +172,11 @@ export default function CashfreeCheckout({
         >
           <div
             ref={dialogRef}
+            tabIndex={-1}
             style={{
+              maxHeight: "calc(100dvh - 40px)",
+              overflowY: "auto",
+              overscrollBehavior: "contain",
               background: "#fff",
               borderRadius: 16,
               padding: "36px 32px",
@@ -167,7 +187,7 @@ export default function CashfreeCheckout({
             }}
             role="dialog"
             aria-modal="true"
-            aria-labelledby="checkout-title"
+            aria-labelledby={`${checkoutId}-title`}
           >
             <button
               onClick={() => setOpen(false)}
@@ -201,7 +221,7 @@ export default function CashfreeCheckout({
                 Secure Checkout
               </p>
               <h2
-                id="checkout-title"
+                id={`${checkoutId}-title`}
                 style={{ fontSize: 20, fontWeight: 800, color: "#0a1628", marginBottom: 4 }}
               >
                 {productName}
@@ -215,7 +235,7 @@ export default function CashfreeCheckout({
             <form onSubmit={handlePay} style={{ display: "flex", flexDirection: "column", gap: 14 }}>
               <div>
                 <label
-                  htmlFor="checkout-name"
+                  htmlFor={`${checkoutId}-name`}
                   style={{
                     display: "block",
                     fontSize: 12,
@@ -230,7 +250,7 @@ export default function CashfreeCheckout({
                 </label>
                 <input
                   ref={firstInputRef}
-                  id="checkout-name"
+                  id={`${checkoutId}-name`}
                   type="text"
                   required
                   value={name}
@@ -252,7 +272,7 @@ export default function CashfreeCheckout({
 
               <div>
                 <label
-                  htmlFor="checkout-email"
+                  htmlFor={`${checkoutId}-email`}
                   style={{
                     display: "block",
                     fontSize: 12,
@@ -266,7 +286,7 @@ export default function CashfreeCheckout({
                   Email Address
                 </label>
                 <input
-                  id="checkout-email"
+                  id={`${checkoutId}-email`}
                   type="email"
                   required
                   value={email}
@@ -291,7 +311,7 @@ export default function CashfreeCheckout({
 
               <div>
                 <label
-                  htmlFor="checkout-phone"
+                  htmlFor={`${checkoutId}-phone`}
                   style={{
                     display: "block",
                     fontSize: 12,
@@ -305,7 +325,7 @@ export default function CashfreeCheckout({
                   Mobile Number
                 </label>
                 <input
-                  id="checkout-phone"
+                  id={`${checkoutId}-phone`}
                   type="tel"
                   required
                   value={phone}
@@ -329,7 +349,7 @@ export default function CashfreeCheckout({
               </div>
 
               {error && (
-                <p
+                <p role="alert"
                   style={{
                     fontSize: 13,
                     color: "#c0392b",
@@ -368,7 +388,8 @@ export default function CashfreeCheckout({
               {footerNote}
             </p>
           </div>
-        </div>
+        </div>,
+        document.body
       )}
     </>
   );
