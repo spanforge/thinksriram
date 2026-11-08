@@ -6,7 +6,7 @@ import { GUIDES } from "@/lib/career/siteCatalog";
 import { LIFETIME_UPDATES_BODY, LIFETIME_UPDATES_TITLE } from "@/lib/career/guideSalesContent";
 
 export const metadata: Metadata = {
-  title: "Career Guides | Think Sriram",
+  title: "Career Guides",
   description: "Role-specific career guides with practical direction for professionals responding to changes in work.",
   alternates: { canonical: "/guides" },
 };

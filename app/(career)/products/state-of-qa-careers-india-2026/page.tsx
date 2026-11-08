@@ -7,7 +7,7 @@ import MobileStickyCheckoutBar from "@/components/career/MobileStickyCheckoutBar
 import ProductStructuredData from "@/components/career/ProductStructuredData";
 
 export const metadata: Metadata = {
-  title: "State of QA Careers India 2026 | Think Sriram",
+  title: "State of QA Careers India 2026",
   description:
     "A premium India-first report for QA professionals who want a clearer view of testing-career shifts, AI pressure points, and adaptation paths. Rs 799 launch price.",
   alternates: { canonical: "/products/state-of-qa-careers-india-2026" },

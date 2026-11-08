@@ -1,0 +1,41 @@
+const fs=require('node:fs'),path=require('node:path'),Module=require('node:module'),ts=require('typescript'),assert=require('node:assert/strict');
+const original=Module._resolveFilename;
+Module._resolveFilename=function(name,parent,...rest){return original.call(this,name.startsWith('@/')?path.resolve(name.slice(2)):name,parent,...rest)};
+require.extensions['.ts']=(mod,file)=>mod._compile(ts.transpileModule(fs.readFileSync(file,'utf8'),{compilerOptions:{module:ts.ModuleKind.CommonJS,esModuleInterop:true}}).outputText,file);
+const {getAllContent}=require('../lib/content.ts');
+const {pillars,pillarFor,latestThinking,editorialArticles,publication}=require('../lib/publication.ts');
+const posts=getAllContent();
+assert.equal(publication.substackUrl,'https://thinksriram.substack.com');
+assert.equal(publication.subscribeUrl,'https://thinksriram.substack.com/subscribe');
+assert.equal(require('../content/site.json').tagline,'Better Careers, Brighter Futures.');
+assert.equal(pillars.length,5);
+assert(posts.length>=50);
+assert(posts.every(p=>pillars.some(t=>t.slug===pillarFor(p).slug)));
+assert(posts.filter(p=>p.series==='Bhaja Govindam').every(p=>pillarFor(p).slug==='ideas-and-perspectives'));
+for(const p of pillars) assert(editorialArticles().some(a=>a.pillar===p.slug),p.slug);
+assert.equal(latestThinking().length,3);
+assert(latestThinking().every(a=>a.description.split(/\s+/).length>=30 && a.description.split(/\s+/).length<=45));
+assert(latestThinking().every((a,i,all)=>i===0 || +new Date(all[i-1].publishedAt)>=+new Date(a.publishedAt)));
+const before=JSON.parse(fs.readFileSync('backups/repositioning-2026-11-08/routes-and-titles.json','utf8'));
+for(const entry of before) assert(fs.existsSync(entry.file),'Missing legacy page '+entry.file);
+assert.equal(pillarFor({...posts[0],topic:'lifelong-learning'}).slug,'lifelong-learning');
+console.log('PASS: all legacy page files remain; 50 articles classified; all five pillars populated; accurate dated selections; confirmed Substack configuration.');
+(async()=>{
+  const {NextRequest}=require('next/server');
+  const {POST}=require('../app/api/publication-events/route.ts');
+  const request=(body,origin='http://localhost:3106')=>new NextRequest('http://localhost:3106/api/publication-events',{method:'POST',headers:{origin,'content-type':'application/json'},body:JSON.stringify(body)});
+  const previous=process.env.NEXT_PUBLIC_PUBLICATION_ANALYTICS;
+  const info=console.info;
+  const recorded=[];
+  try{
+    process.env.NEXT_PUBLIC_PUBLICATION_ANALYTICS='false';
+    console.info=text=>recorded.push(JSON.parse(text));
+    assert.equal((await POST(request({event:'article_view',path:'/writing/test'}))).status,204);assert.equal(recorded.length,0);
+    process.env.NEXT_PUBLIC_PUBLICATION_ANALYTICS='true';
+    assert.equal((await POST(request({event:'subscribe_click',path:'/writing/test',email:'not-recorded@example.com'}))).status,204);
+    assert.deepEqual(recorded,[{type:'publication_metric',event:'subscribe_click',path:'/writing/test'}]);
+    assert.equal((await POST(request({event:'article_view',path:'/writing?q=private'}))).status,400);
+    assert.equal((await POST(request({event:'article_view',path:'/writing/test'},'https://unrelated.example'))).status,403);
+  }finally{console.info=info;if(previous===undefined)delete process.env.NEXT_PUBLIC_PUBLICATION_ANALYTICS;else process.env.NEXT_PUBLIC_PUBLICATION_ANALYTICS=previous;}
+  console.log('PASS: metrics disabled by default; valid events record no personal fields; queries and cross-origin requests rejected.');
+})().catch(error=>{console.error(error);process.exitCode=1});

@@ -1,21 +1,10 @@
-﻿import Link from "next/link";
-import { site } from "@/lib/site";
-export function NewsletterSignup({ id = "newsletter-email" }: { id?: string }) {
-  const username = site.newsletterUsername.trim();
-  const enabled = /^[A-Za-z0-9_-]+$/.test(username);
-  return <section className="newsletter" aria-labelledby={`${id}-heading`}>
-    <h2 id={`${id}-heading`}>Occasional email notes</h2>
-    {enabled ? <>
-      <p>A way to hear about new writing. Confirm your email before receiving updates, and unsubscribe whenever you like.</p>
-      <form action={`https://buttondown.com/api/emails/embed-subscribe/${username}`} method="post" className="signup-form">
-        <label htmlFor={id}>Email address<input id={id} type="email" name="email" autoComplete="email" required /></label>
-        <input type="hidden" name="embed" value="1" /><button type="submit">Subscribe</button>
-      </form>
-      <p className="form-note">Signup and confirmation are handled by Buttondown. <Link href="/privacy">Privacy</Link>.</p>
-    </> : <>
-      <p>Email signup is being set up. No email addresses are collected here yet.</p>
-      <p><Link href="/rss.xml">Follow new writing with RSS</Link>, or <Link href="/contact">get in touch</Link>.</p>
-      <fieldset disabled className="signup-form"><legend className="visually-hidden">Email signup is not yet available</legend><label htmlFor={id}>Email address<input id={id} type="email" placeholder="Available when email signup opens" /></label><button type="button">Signup coming soon</button></fieldset>
-    </>}
+import { publication } from '@/lib/publication';
+export function NewsletterSignup({ id = 'publication-subscribe' }: { id?: string }) {
+  return <section className="newsletter" aria-labelledby={id + '-heading'}>
+    <p className="eyebrow">THINK SRIRAM ON SUBSTACK</p>
+    <h2 id={id + '-heading'}>Stay Curious. Keep Learning.</h2>
+    <p>Follow Think Sriram on Substack for research-informed perspectives, original analysis, and practical ideas about careers, learning, and better decisions.</p>
+    <a className="brand-button" href={publication.subscribeUrl}>Subscribe on Substack <span aria-hidden="true">↗</span></a>
+    <p className="subscription-note">Subscriptions are managed by Substack. No email address is collected on this website.</p>
   </section>;
 }

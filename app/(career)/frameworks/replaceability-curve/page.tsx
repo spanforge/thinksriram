@@ -4,7 +4,7 @@ import type { Metadata } from "next";
 
 export const metadata: Metadata = {
   alternates: { canonical: "/frameworks/replaceability-curve" },
-  title: "Replaceability Curve | Think Sriram",
+  title: "Replaceability Curve",
   description:
     "Public overview of the Replaceability Curve, Sriram Advisory's framework for explaining quiet value erosion in professional work.",
 };

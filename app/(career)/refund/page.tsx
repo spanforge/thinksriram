@@ -4,7 +4,7 @@ import type { Metadata } from "next";
 import { proRefundPromise } from "@/lib/career/commercialCopy";
 
 export const metadata: Metadata = {
-  title: "Refund Policy | Think Sriram",
+  title: "Refund Policy",
   description: "Refund policy for Sriram Advisory digital products, assessments and advisory engagements.",
   alternates: { canonical: "/refund" },
 };

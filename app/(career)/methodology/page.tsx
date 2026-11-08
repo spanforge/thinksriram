@@ -1,7 +1,7 @@
 import Link from "next/link";
 import type { Metadata } from "next";
 import { PageShell, Hero, Section, ClosingCTA } from "@/components/career/AdvisoryUI";
-export const metadata: Metadata = { title: "Evidence and Method | Think Sriram", description: "How Sriram uses evidence, assumptions and professional judgment in advisory work and career resources.", alternates: { canonical: "/methodology" } };
+export const metadata: Metadata = { title: "Evidence and Method", description: "How Sriram uses evidence, assumptions and professional judgment in advisory work and career resources.", alternates: { canonical: "/methodology" } };
 export default function Methodology() {
   return <PageShell><Hero title="Keep the evidence close to the recommendation" body="I use professional judgment to interpret evidence in context. The useful output is a reasoned decision that can be questioned, acted on and reviewed." primary={{ label: "See a decision-note template", href: "/methodology" }} secondary={{ label: "Read the thinking", href: "/writing" }} />
     <Section title="Start with the work, not a preferred solution"><ol className="sa-thinking-steps"><li><h3>Define the question</h3><p>Agree the intended outcome, scope and decision owner before collecting more material.</p></li><li><h3>Examine the evidence</h3><p>Review agreed information and participant perspectives. Record source dates, gaps and conflicting observations.</p></li><li><h3>Compare explanations</h3><p>Distinguish observations from assumptions and examine other explanations that fit the evidence.</p></li><li><h3>Choose and review</h3><p>Explain options and trade-offs, agree a next step and identify what would change the recommendation.</p></li></ol></Section>

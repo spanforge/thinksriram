@@ -8,7 +8,7 @@ import {
 } from "@/lib/career/guideSalesContent";
 
 export const metadata: Metadata = {
-  title: "IT Sector Guides | Think Sriram",
+  title: "IT Sector Guides",
   description:
     "India-first career intelligence guides for IT professionals navigating AI risk, market shifts, and role repositioning.",
   alternates: { canonical: "/guides/it" },

@@ -4,7 +4,7 @@ import Footer from "@/components/career/Footer";
 import FreeAiExposureCheck from "@/components/career/FreeAiExposureCheck";
 
 export const metadata: Metadata = {
-  title: "Free AI Exposure Check | Think Sriram",
+  title: "Free AI Exposure Check",
   description: "Answer six quick questions to get a directional AI exposure score and practical next-step options matched to your role.",
 };
 

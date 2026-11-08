@@ -4,7 +4,7 @@ import Footer from "@/components/career/Footer";
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Reports | Think Sriram",
+  title: "Reports",
   description:
     "India-first intelligence reports on career and workforce risk, market shifts, and role diagnostics for working professionals.",
   alternates: { canonical: "/career-intelligence-report" },

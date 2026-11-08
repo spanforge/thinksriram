@@ -3,7 +3,7 @@ import { INSIGHTS } from "@/lib/career/insights";
 
 export const siteConfig = {
   brandName: "Think Sriram",
-  descriptor: "Clear thinking. Practical progress.",
+  descriptor: "Better Careers, Brighter Futures.",
   canonicalOrigin: "https://thinksriram.com",
   email: "sriram@sriramadvisory.com",
   whatsapp: "https://wa.me/919342229420",

@@ -1,9 +1,15 @@
 ﻿"use client";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { CopyText } from "@/components/CopyText";
 export function ContactComposer({ email }: { email: string }) {
   const [name, setName] = useState(""), [subject, setSubject] = useState(""), [message, setMessage] = useState("");
   const [ready, setReady] = useState(false);
+  useEffect(() => {
+    if (new URLSearchParams(window.location.search).get('interest') === 'career') {
+      setSubject('Career Intelligence resource question');
+      setMessage('My current role:\n\nThe decision I am working through:\n\nThe resource I am interested in:\n');
+    }
+  }, []);
   const body = `${name ? `From: ${name}\n\n` : ""}${message}`;
   const gmail = `https://mail.google.com/mail/?view=cm&fs=1&to=${encodeURIComponent(email)}&su=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
   const outlook = `https://outlook.live.com/mail/0/deeplink/compose?to=${encodeURIComponent(email)}&subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;

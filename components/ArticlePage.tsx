@@ -2,12 +2,13 @@
 import { Markdown } from "@/components/Markdown";
 import { ArticleActions } from "@/components/ArticleActions";
 import { ContentItem, contentHref, getAllContent, formatDate } from "@/lib/content";
-import { topicFor, base } from "@/lib/site";
+import { base } from "@/lib/site";
+import { pillarFor } from "@/lib/publication";
 import { articleKind, relatedWriting, seriesFor, seriesSlug, seriesEntryLabel } from "@/lib/discovery";
 
 export function ArticlePage({ item }: { item: ContentItem }) {
-  const all = getAllContent(), topic = topicFor(item);
-  const sequence = item.series ? seriesFor(all, item.series) : all.filter(post => !post.series && topicFor(post).slug === topic.slug);
+  const all = getAllContent(), topic = pillarFor(item);
+  const sequence = item.series ? seriesFor(all, item.series) : all.filter(post => !post.series && pillarFor(post).slug === topic.slug);
   const index = sequence.findIndex(post => post.slug === item.slug);
   const previous = item.series ? sequence[index - 1] : sequence[index + 1];
   const next = item.series ? sequence[index + 1] : sequence[index - 1];

@@ -4,7 +4,7 @@ import Link from "next/link";
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Disclaimer | Think Sriram",
+  title: "Disclaimer",
   description: "Full legal disclaimer for Sriram Advisory. Educational and analytical commentary only - not career counselling, legal advice, or employment guidance.",
   alternates: { canonical: "/disclaimer" },
 };

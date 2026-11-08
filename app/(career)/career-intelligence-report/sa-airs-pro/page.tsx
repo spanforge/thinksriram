@@ -4,7 +4,7 @@ import { PageShell, Hero, Section, Breadcrumbs } from "@/components/career/Advis
 import CashfreeCheckout from "@/components/career/CashfreeCheckout";
 import MobileStickyCheckoutBar from "@/components/career/MobileStickyCheckoutBar";
 import { proRefundPromise } from "@/lib/career/commercialCopy";
-export const metadata: Metadata = { title: "Career Intelligence Report – Pro | Think Sriram", description: "A structured interpretation of self-reported career context, with thinking prompts, directional scores and a 90-day reassessment. ₹999.", alternates: { canonical: "/career-intelligence-report/sa-airs-pro" } };
+export const metadata: Metadata = { title: "Career Intelligence Report – Pro", description: "A structured interpretation of self-reported career context, with thinking prompts, directional scores and a 90-day reassessment. ₹999.", alternates: { canonical: "/career-intelligence-report/sa-airs-pro" } };
 const parts = [
   ["Career thinking assessment", "Five thinking frames help examine patterns suggested by your answers. Ratings are prompts for reflection, rather than measurements of your ability or personality."],
   ["SA-AIRS interpretation", "Explore task repetition, automation feasibility, market pressure, decision complexity and human dependency. Directional scores organise the interpretation; they are not probabilities of job loss."],

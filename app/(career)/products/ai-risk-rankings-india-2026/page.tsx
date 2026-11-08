@@ -5,7 +5,7 @@ import CashfreeCheckout from "@/components/career/CashfreeCheckout";
 import MobileStickyCheckoutBar from "@/components/career/MobileStickyCheckoutBar";
 import ProductStructuredData from "@/components/career/ProductStructuredData";
 import ProductRecommendations from "@/components/career/ProductRecommendations";
-export const metadata: Metadata = { title: "AI Risk Rankings India 2026 | Think Sriram", description: "An India-focused interpretation of career exposure, role change and adaptation options. May 2026 edition, ₹999.", alternates: { canonical: "/products/ai-risk-rankings-india-2026" } };
+export const metadata: Metadata = { title: "AI Risk Rankings India 2026", description: "An India-focused interpretation of career exposure, role change and adaptation options. May 2026 edition, ₹999.", alternates: { canonical: "/products/ai-risk-rankings-india-2026" } };
 const careers = ["Customer Service / L1 Support Agent", "Data Entry Specialist / Clerk", "Software QA Tester", "Medical Transcriptionist", "General Content / Copywriter"];
 const bands = [
   ["Extreme", "The model identifies substantial exposure in routine work. Examine actual task mix and the opportunities to change responsibilities."],

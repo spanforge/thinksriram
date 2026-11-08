@@ -10,7 +10,7 @@ import {
 } from "@/lib/career/bundlesCatalog";
 
 export const metadata: Metadata = {
-  title: "Bundles | Think Sriram",
+  title: "Bundles",
   description: BUNDLE_PAGE_SUBTITLE,
   alternates: { canonical: "/bundles" },
 };

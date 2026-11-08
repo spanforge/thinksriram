@@ -7,7 +7,7 @@ import MobileStickyCheckoutBar from "@/components/career/MobileStickyCheckoutBar
 import ProductStructuredData from "@/components/career/ProductStructuredData";
 
 export const metadata: Metadata = {
-  title: "Why Expertise Becomes a Trap | Think Sriram",
+  title: "Why Expertise Becomes a Trap",
   description:
     "A Sriram Advisory Intelligence Series report on why expertise can become a trap during AI-driven change, automation, and professional reinvention. Rs 499.",
   alternates: { canonical: "/products/why-expertise-becomes-a-trap" },

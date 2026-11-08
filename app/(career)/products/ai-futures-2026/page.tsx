@@ -7,7 +7,7 @@ import MobileStickyCheckoutBar from "@/components/career/MobileStickyCheckoutBar
 import ProductStructuredData from "@/components/career/ProductStructuredData";
 
 export const metadata: Metadata = {
-  title: "AI Futures 2026 | Think Sriram",
+  title: "AI Futures 2026",
   description:
     "A premium India-first AI futures report for professionals who want a clearer view of coming career shifts, strategic signals, and adaptation paths. Rs 799 launch price.",
   alternates: { canonical: "/products/ai-futures-2026" },

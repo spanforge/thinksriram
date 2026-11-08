@@ -4,7 +4,7 @@ import Footer from "@/components/career/Footer";
 import FreeGuideLeadForm from "@/components/career/FreeGuideLeadForm";
 
 export const metadata: Metadata = {
-  title: "Reel Lessons Part 1 | Free Guide | Think Sriram",
+  title: "Reel Lessons Part 1 | Free Guide",
   description:
     "Free Sriram Advisory landing page for Reel Lessons Part 1, a compact collection of lessons, reflections, and practical career observations.",
 };

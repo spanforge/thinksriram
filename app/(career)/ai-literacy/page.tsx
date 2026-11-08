@@ -5,7 +5,7 @@ import Footer from "@/components/career/Footer";
 import { AI_LITERACY_PRODUCTS } from "@/lib/career/siteCatalog";
 
 export const metadata: Metadata = {
-  title: "AI Literacy for Professionals | Think Sriram",
+  title: "AI Literacy for Professionals",
   description:
     "Plain-language AI education for HR, finance, sales, legal, and operations professionals. No coding, no jargon, no hype - just practical AI literacy.",
 };

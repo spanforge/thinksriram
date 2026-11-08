@@ -4,7 +4,7 @@ import type { Metadata } from "next";
 
 export const metadata: Metadata = {
   alternates: { canonical: "/frameworks/ai-leverage-ladder" },
-  title: "AI Leverage Ladder | Think Sriram",
+  title: "AI Leverage Ladder",
   description:
     "Public overview of the AI Leverage Ladder, Sriram Advisory's framework for moving from tool use to stronger professional leverage.",
 };

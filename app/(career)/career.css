@@ -1141,4 +1141,9 @@
 .career-section .sa-card h3{font-size:1.45rem}
 .career-section button{cursor:pointer}
 .career-section :focus-visible{outline:3px solid #006b70;outline-offset:3px}
+.career-section { --sa-brand: #10243a; --sa-ink: #10243a; --sa-muted: #5d6470; --sa-surface: #f6f2e9; --sa-border: #d9d4c9; color: #10243a; }
+.career-section .sa-hero, .career-section .sa-muted, .career-section .sa-closing { background: #f6f2e9; }
+.career-section .sa-btn-primary { border-bottom: 3px solid #e4b74a; }
+.career-section :focus-visible { outline: 3px solid #10243a; outline-offset: 3px; }
+.career-section .commercial-context { padding-block: 16px; font-size: .9rem; margin: 0; }
 @media(max-width:600px){.career-section .career-nav{padding-inline:20px}.career-section [style*="grid-template-columns"]{grid-template-columns:1fr!important}.career-section h1{overflow-wrap:anywhere}}

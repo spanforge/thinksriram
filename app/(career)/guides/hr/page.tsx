@@ -8,7 +8,7 @@ import {
 } from "@/lib/career/guideSalesContent";
 
 export const metadata: Metadata = {
-  title: "HR Sector Guides | Think Sriram",
+  title: "HR Sector Guides",
   description:
     "India-first HR career intelligence guides for HR professionals navigating AI automation, role compression, and repositioning into higher-leverage work.",
   alternates: { canonical: "/guides/hr" },

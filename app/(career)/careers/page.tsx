@@ -5,7 +5,7 @@ import { copy } from "@/lib/career/positioning";
 import { relatedInsights, resources } from "@/lib/career/advisoryContent";
 
 export const metadata: Metadata = {
-  title: "Career Intelligence for IT Professionals | Think Sriram",
+  title: "Career Intelligence for IT Professionals",
   description: "Career intelligence for professionals across IT services, GCCs and adjacent digital roles navigating AI, role change and career positioning.",
   alternates: { canonical: "/careers" },
 };

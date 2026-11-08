@@ -4,7 +4,7 @@ import Footer from "@/components/career/Footer";
 import CashfreeCheckout from "@/components/career/CashfreeCheckout";
 
 export const metadata: Metadata = {
-  title: "Career Positioning Audit | Think Sriram",
+  title: "Career Positioning Audit",
   description:
     "A structured audit of your resume and LinkedIn positioning for tech professionals who want sharper market signal in 2026. Rs 999 introductory price.",
   alternates: { canonical: "/services/career-positioning-audit" },

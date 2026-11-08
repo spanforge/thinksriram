@@ -4,7 +4,7 @@ import type { Metadata } from "next";
 
 export const metadata: Metadata = {
   alternates: { canonical: "/frameworks/sa-airs" },
-  title: "SA-AIRS | Think Sriram",
+  title: "SA-AIRS",
   description:
     "Public overview of SA-AIRS, Sriram Advisory's role exposure framework for understanding AI, automation, market pressure, and career durability.",
 };

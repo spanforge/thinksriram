@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import { PageShell, Hero, Section, ResourceCard } from "@/components/career/AdvisoryUI";
 import { resources } from "@/lib/career/advisoryContent";
 
-export const metadata: Metadata = { title: "Free Resources | Think Sriram", description: "Use the free tools and guides currently published by Sriram Advisory.", alternates: { canonical: "/free" } };
+export const metadata: Metadata = { title: "Free Resources", description: "Use the free tools and guides currently published by Sriram Advisory.", alternates: { canonical: "/free" } };
 
 export default function FreePage() {
   const freeResources = resources.filter(resource => resource.access === "free");

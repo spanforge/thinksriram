@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import { Hero, LinkCard, PageShell, Section } from "@/components/career/AdvisoryUI";
 
 export const metadata: Metadata = {
-  title: "Career Assessments | Think Sriram",
+  title: "Career Assessments",
   description: "Compare the career assessments currently available from Sriram Advisory.",
   alternates: { canonical: "/assessments" },
 };

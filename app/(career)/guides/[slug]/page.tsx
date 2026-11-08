@@ -15,11 +15,11 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   if (!content) return { title: "Guide not found" };
 
   return {
-    title: `${content.productName} | Think Sriram`,
+    title: `${content.productName}`,
     description: content.heroSummary,
     alternates: { canonical: `/guides/${slug}` },
     openGraph: {
-      title: `${content.productName} | Think Sriram`,
+      title: `${content.productName}`,
       description: content.heroSummary,
       type: "website",
     },

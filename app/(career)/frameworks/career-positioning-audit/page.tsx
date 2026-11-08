@@ -4,7 +4,7 @@ import type { Metadata } from "next";
 
 export const metadata: Metadata = {
   alternates: { canonical: "/frameworks/career-positioning-audit" },
-  title: "Career Positioning Audit Framework | Think Sriram",
+  title: "Career Positioning Audit Framework",
   description:
     "Public overview of the Career Positioning Audit, Sriram Advisory's framework for evaluating professional signal, clarity, and market relevance.",
 };

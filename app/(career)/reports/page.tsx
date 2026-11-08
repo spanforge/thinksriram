@@ -3,7 +3,7 @@ import { Hero, LinkCard, PageShell, Section } from "@/components/career/Advisory
 import { REPORTS } from "@/lib/career/siteCatalog";
 
 export const metadata: Metadata = {
-  title: "Career and Workforce Reports | Think Sriram",
+  title: "Career and Workforce Reports",
   description: "Published Sriram Advisory reports on careers, skills, AI, automation and workforce change.",
   alternates: { canonical: "/reports" },
 };

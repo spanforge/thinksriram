@@ -6,7 +6,7 @@ import type { Metadata } from "next";
 import ProductStructuredData from "@/components/career/ProductStructuredData";
 
 export const metadata: Metadata = {
-  title: "Career Intelligence Report - Pro Edition | Think Sriram",
+  title: "Career Intelligence Report - Pro Edition",
   description:
     "A career intelligence report for Indian professionals who want structured research on role change, industry signals, and practical next steps.",
   alternates: { canonical: "/products/pro-edition" },

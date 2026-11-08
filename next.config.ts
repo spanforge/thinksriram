@@ -4,7 +4,7 @@ const nextConfig: NextConfig = {
   // Keep article metadata in the initial head for reliable crawlers and previews.
   htmlLimitedBots: /.*/,
   outputFileTracingIncludes: {
-    "/*": ["./content/**/*"]
+    "/*": ["./content/**/*", "./public/images/think-sriram-better-futures.png"]
   },
   async headers() {
     return [{ source: "/:path*", headers: [

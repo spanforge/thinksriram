@@ -1,0 +1,71 @@
+{
+  "substackUrl": "https://thinksriram.substack.com",
+  "subscribeUrl": "https://thinksriram.substack.com/subscribe",
+  "description": "Independent perspectives on the future of careers, AI, lifelong learning, economics, and better decisions. Explore research-informed writing from Think Sriram.",
+  "latestSlugs": [
+    "ai-is-making-work-faster-but-where",
+    "why-earning-more-money-doesnt-always",
+    "why-talented-teams-underperform"
+  ],
+  "summaries": {
+    "why-talented-teams-underperform": "Why can capable individuals struggle to perform together? An ancient Buddhist dialogue offers a lens for examining a modern organisational puzzle: how relationships, context, and the way a team works together shape its collective performance.",
+    "socrates-and-the-art-of-the-right-question": "A fluent AI answer can sound convincing before its assumptions have been examined. This essay draws on Socratic questioning to offer three questions for reviewing AI output and deciding whether an answer deserves your trust.",
+    "aristotle-and-the-judgment-that-cannot-be-automated": "As tools take on the routine parts of a job, what remains for human judgment? A reflection on Aristotle’s practical wisdom and the importance of experience, context, and responsibility when a situation offers no simple rule."
+  },
+  "articles": [
+    {
+      "title": "AI Is Making Work Faster. But Where Is the Economic Value?",
+      "url": "https://thinksriram.substack.com/p/ai-is-making-work-faster-but-where",
+      "publishedAt": "2026-11-06T01:15:27.000Z",
+      "description": "AI helps people complete tasks faster, but productivity gains do not automatically become business profits. This analysis examines the gap between individual efficiency and economic value, and what the next phase of AI means for businesses and professionals.",
+      "pillar": "future-of-careers"
+    },
+    {
+      "title": "Why Earning More Money Doesn't Always Make You Wealthier",
+      "url": "https://thinksriram.substack.com/p/why-earning-more-money-doesnt-always",
+      "publishedAt": "2026-11-04T14:47:56.000Z",
+      "description": "A higher salary does not always translate into greater financial security. Using a simple comparison of income and expenses, this introduction to finance without jargon explores why the money you retain matters as much as the money you earn.",
+      "pillar": "better-life-and-decisions"
+    },
+    {
+      "title": "The Hour Ritu Couldn’t Leave Empty",
+      "url": "https://thinksriram.substack.com/p/the-hour-ritu-couldnt-leave-empty",
+      "publishedAt": "2026-09-08T02:00:24.000Z",
+      "description": "When a cancelled meeting creates an unexpected free hour, Ritu immediately fills it with more work. A reflective story about our discomfort with unstructured time, read alongside an older tradition of making room for rest and attention.",
+      "pillar": "ideas-and-perspectives"
+    },
+    {
+      "title": "The Recordings on the Old Hard Drive",
+      "url": "https://thinksriram.substack.com/p/the-recordings-on-the-old-hard-drive",
+      "publishedAt": "2026-09-07T02:01:39.000Z",
+      "description": "Anand has years of recordings of his grandfather?s stories and keeps waiting for work to settle down before doing something with them. A reflection on postponement, finite time, and the things we hope to preserve for others.",
+      "pillar": "ideas-and-perspectives"
+    },
+    {
+      "title": "The Part of the Story Where the Hero Says No",
+      "url": "https://thinksriram.substack.com/p/the-part-of-the-story-where-the-hero",
+      "publishedAt": "2026-09-06T02:01:37.000Z",
+      "description": "Meera has carried an idea for her own practice for three years, always finding a reasonable reason to wait. This reflection draws on the hero?s journey to examine hesitation, reassurance, and the moment of choosing to begin.",
+      "pillar": "ideas-and-perspectives"
+    },
+    {
+      "title": "Who Is Rich?",
+      "url": "https://thinksriram.substack.com/p/who-is-rich",
+      "publishedAt": "2026-09-05T02:00:30.000Z",
+      "description": "Rakesh reached the financial milestone he once thought would let him relax, then quietly replaced it with another. A reflection on the moving target of enough and the relationship between material comfort, ambition, and a sense of contentment.",
+      "pillar": "better-life-and-decisions"
+    },
+    {
+      "title": "What Are You Actually Protecting Your Child From?",
+      "url": "https://thinksriram.substack.com/p/what-are-you-actually-protecting",
+      "publishedAt": "2026-09-04T02:42:44.000Z",
+      "description": "A parent watches her child struggle with a school project and feels the impulse to step in. This reflection explores the tension between helping someone succeed immediately and giving them room to develop confidence through their own effort.",
+      "pillar": "lifelong-learning"
+    }
+  ],
+  "pillarOverrides": {
+    "socrates-and-the-art-of-the-right-question": "lifelong-learning"
+  },
+  "feedUrl": "https://thinksriram.substack.com/feed",
+  "linksVerifiedAt": "2026-11-08"
+}

@@ -6,7 +6,7 @@ import CashfreeCheckout from "@/components/career/CashfreeCheckout";
 import ProductStructuredData from "@/components/career/ProductStructuredData";
 
 export const metadata: Metadata = {
-  title: "AI Delivery Field Notes | Think Sriram",
+  title: "AI Delivery Field Notes",
   description:
     "A practical field guide for the person carrying an AI initiative from pilot to production. Includes field notes, templates, scorecards, war stories, and maturity model guidance. Rs 499.",
   alternates: { canonical: "/products/ai-delivery-field-notes" },
