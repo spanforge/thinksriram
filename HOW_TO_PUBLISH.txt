@@ -1,45 +1,39 @@
 PUBLISHING ON THINK SRIRAM
 
-1. Write your article in any text editor, such as Notepad.
-2. Put its title on the first line. Leave a blank line, then write the article.
-3. Save it as a UTF-8 .txt file directly inside the content folder.
+1. Start the site with npm run dev -- --hostname localhost --port 3000.
+2. Open http://localhost:3000/studio. Enter a title, topic, summary, and essay.
+3. Save draft to come back later. Preview essay to check the rendered body.
+4. Choose Publish to local archive, then Confirm publish. This creates an
+   MDX file in content/essays and lists the essay in the local Writing archive.
+5. Open the local essay to check it. Deploy the new MDX file through the
+   existing website hosting workflow. If the host deploys from Git, commit
+   and push the new essay file along with any site changes that are needed.
+6. Check the real public page. In Studio, select the essay, then copy the
+   permanent link or edit and copy the starter text for LinkedIn, Substack
+   Notes, or X. Post that short text yourself. The full essay lives on
+   Think Sriram.
 
-Example filename: my-new-article.txt
+Drafts stay in .studio-drafts on this computer. This folder is ignored by Git.
+Keep a private backup if you want draft copies on another computer. Studio is
+available on localhost during development. Published files belong in your
+website repository and appear in Writing, Topics, RSS, and the sitemap.
+Keep the URL slug unchanged when you revise a published essay. Edit the
+existing MDX file directly to revise it.
 
-Example contents:
+MANUAL PUBLISHING
 
-My new article
+You can still place a UTF-8 .txt file in content. Put the title on the first
+line, leave a blank line, and add the body. The filename becomes the URL slug.
+For a fixed date, start the filename with a date such as 2026-10-16. Keep
+unpublished text outside content or use an underscore prefix, such as
+_unfinished-note.txt.
 
-This is the first paragraph.
+Existing MDX files and URLs remain supported. A draft or scheduled status, or
+a future date, keeps MDX content out of public pages. Markdown headings,
+paragraphs, lists, emphasis, and HTTPS links are supported. Optional MDX
+fields include genre, editorialNote, sources, updatedAt, correction, series,
+and seriesOrder. An entry in sources can be a URL or "URL | Link label".
 
-This is another paragraph. Leave a blank line between paragraphs.
-
-That is all you need. The website creates the page, URL, short description and archive entry. No CMS, login, database or metadata is needed.
-
-Optional formatting:
-- A section heading can start with ## followed by a space.
-- A bullet can start with a dash and a space.
-- A numbered list can use 1. 2. 3.
-- **Bold words** and [a link](https://example.com) are supported.
-
-Dates: normally the file's last-modified date is used. For a fixed date, start the filename with a date, such as 2026-10-16-my-new-article.txt. Dates are displayed in India time. Files with future dates remain hidden until that date.
-
-Keep the filename the same when editing to preserve the article link. Use a different filename for each article. Non-English titles and filenames are supported. The article URL comes from the filename.
-
-To keep something private, start its filename with an underscore, such as _unfinished-note.txt, or keep it outside content. Empty files and files containing only a title are not published.
-
-On a running Next.js server, uploaded files are read on the next page request. Upload to the server's content folder, not just your own computer. If the host deploys this repository, upload or commit the file to content there and let the host deploy the update. A local change cannot change the live website by itself.
-
-All existing MDX articles are published in their current folders. You do not need to convert them. New files explicitly marked draft or scheduled remain private.
-
-MDX ARTICLES
-
-.mdx files are also supported anywhere inside content, including nested folders. Existing frontmatter (title, slug, publication date, excerpt and other fields) is preserved. Metadata is optional: you can also use a title on the first line followed by the article, just like a text file. New MDX files without a status default to published. Explicit draft/scheduled status and future dates still keep new unfinished writing private. Files and folders starting with an underscore or dot are ignored. All 49 existing MDX articles have been marked published at your request.
-
-REVIEW EDITION v0.2.0
-
-Optional MDX fields now include genre (Essay, Reflection or Story), editorialNote, sources, updatedAt and correction. Reading time is calculated from the article body. A series uses series and seriesOrder; an index and reading-order navigation are created automatically for published parts. Search and topic/year/series filters use the same public article collection. Plain text files still need only a title and body.
-
-EMAIL UPDATES
-
-The footer signup option is intentionally inactive until you open a newsletter account. Recommended: Buttondown. Create an account you own, confirm its double-opt-in setting, and set newsletterUsername in content/site.json to your Buttondown username. Upload that change to GitHub and let Vercel redeploy. This public username is not a password or API key. The standard form then submits directly to Buttondown; no custom newsletter backend is needed. Do not add passwords or API keys to site.json.
+For a new essay, write a short summary asking the question the essay answers
+or giving readers one reason to click. Use that summary as a starting point
+for short social posts, then link to the canonical article on thinksriram.com.

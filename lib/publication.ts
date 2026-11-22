@@ -35,5 +35,8 @@ export function editorialArticles(): EditorialArticle[] {
 export function latestThinking() {
   const all = editorialArticles();
   const selected = config.latestSlugs as string[];
-  return (selected.length ? all.filter(a => selected.some(slug => a.url.endsWith('/' + slug))) : all).slice(0, 3);
+  const curated = all.filter(article => selected.some(slug => article.url.endsWith('/' + slug)));
+  if (!curated.length) return all.slice(0, 3);
+  const newestCuratedDate = Date.parse(curated[0].publishedAt);
+  return all.filter(article => curated.includes(article) || Date.parse(article.publishedAt) > newestCuratedDate).slice(0, 3);
 }

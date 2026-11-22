@@ -1,9 +1,11 @@
 ﻿const fs = require('fs'), vm = require('vm'), ts = require('typescript'), assert = require('node:assert/strict'), path = require('path');
 const contentRoot = path.join(process.cwd(), 'content');
 const source = ts.transpileModule(fs.readFileSync('lib/content.ts', 'utf8'), { compilerOptions: { module: ts.ModuleKind.CommonJS, esModuleInterop: true } }).outputText;
+const markdown = {};
+vm.runInNewContext(ts.transpileModule(fs.readFileSync('lib/markdown.ts', 'utf8'), { compilerOptions: { module: ts.ModuleKind.CommonJS } }).outputText, { exports: markdown });
 function load(mockFs) {
   const exports = {};
-  vm.runInNewContext(source, { exports, require: n => n === 'node:fs' && mockFs ? mockFs : require(n), process, Date, Intl, console });
+  vm.runInNewContext(source, { exports, require: n => n === './markdown' ? markdown : n === 'node:fs' && mockFs ? mockFs : require(n), process, Date, Intl, console });
   return exports;
 }
 function files(items) {

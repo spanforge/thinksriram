@@ -1,5 +1,5 @@
 ﻿import { Fragment } from "react";
-import { renderMarkdown } from "@/lib/content";
+import { renderMarkdown } from "@/lib/markdown";
 
 function Inline({ text }: { text: string }) {
   return <>{text.split(/(\*\*[^*]+\*\*|\*[^*]+\*|\[[^\]]+\]\(https?:\/\/[^\s)]+\)|\x60[^\x60]+\x60)/g).map((part, index) => {
@@ -11,12 +11,26 @@ function Inline({ text }: { text: string }) {
   })}</>;
 }
 
-export function Markdown({ body }: { body: string }) {
-  return <>{renderMarkdown(body).map((block, index) => {
+export function articleBlocks(body: string) {
+  const used = new Set<string>();
+  return renderMarkdown(body).map(block => {
+    if (block.type !== 'h2' && block.type !== 'h3') return { ...block, id: undefined, label: undefined };
+    const label = block.text.replace(/\[([^\]]+)\]\([^)]+\)/g, '$1').replace(/[\x60*_]/g, '');
+    const slug = label.toLowerCase().normalize('NFKC').replace(/[^\p{L}\p{N}]+/gu, '-').replace(/^-|-$/g, '');
+    const prefix = `section-${slug || 'heading'}`;
+    let id = prefix;
+    for (let suffix = 2; used.has(id); suffix++) id = `${prefix}-${suffix}`;
+    used.add(id);
+    return { ...block, id, label };
+  });
+}
+
+export function Markdown({ blocks }: { blocks: ReturnType<typeof articleBlocks> }) {
+  return <>{blocks.map((block, index) => {
     const text = <Inline text={block.text} />;
     if (block.type === "hr") return <hr key={index} />;
-    if (block.type === "h2") return <h2 key={index}>{text}</h2>;
-    if (block.type === "h3") return <h3 key={index}>{text}</h3>;
+    if (block.type === "h2") return <h2 key={index} id={block.id}>{text}</h2>;
+    if (block.type === "h3") return <h3 key={index} id={block.id}>{text}</h3>;
     if (block.type === "quote") return <blockquote key={index}>{text}</blockquote>;
     if (block.type === "verse") return <div className="verse-block" key={index}>{block.text}</div>;
     if (block.type === "ol" || block.type === "ul") {

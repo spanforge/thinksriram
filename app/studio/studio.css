@@ -1,0 +1,25 @@
+.studio { padding-bottom: 48px; }
+.studio-layout { display: grid; grid-template-columns: minmax(0, 1.4fr) minmax(0, 1fr); gap: 24px; align-items: start; }
+.studio-panel { min-width: 0; padding: clamp(16px, 3vw, 28px); margin-bottom: 20px; border: 1px solid var(--border); background: var(--surface); overflow-wrap: anywhere; }
+.studio-panel h2 { font-size: clamp(1.5rem, 3vw, 2rem); margin-bottom: 12px; }
+.studio-panel p, .studio-panel a, .studio-panel button { font-size: 1rem; }
+.studio-panel a { display: inline-block; margin-top: 12px; }
+.studio-panel label { display: grid; gap: 6px; font-size: 1rem; font-weight: 700; min-width: 0; }
+.studio-panel :is(input, select, textarea) { width: 100%; min-height: 44px; padding: 8px 10px; border: 1px solid var(--input-border); color: var(--text); background: var(--page-bg); font: 1rem/1.5 Arial, sans-serif; }
+.studio-panel textarea { resize: vertical; }
+.studio-panel :is(input, textarea):focus-visible { outline: 3px solid var(--heading); outline-offset: 2px; }
+.studio-panel button { min-height: 44px; padding: 8px 12px; background: var(--heading); color: white; border: 1px solid var(--heading); cursor: pointer; }
+.studio-panel button:focus-visible { background: var(--focus); color: var(--heading); }
+.studio-panel button:disabled { opacity: .55; cursor: default; }
+.studio-fields { display: grid; gap: 16px; margin: 0; padding: 0; border: 0; min-inline-size: 0; }
+.studio-fields small { display: block; font-size: .875rem; font-weight: 400; color: var(--text-soft); }
+.studio-row { display: flex; flex-wrap: wrap; gap: 12px; }
+.studio-row label { flex: 1 1 160px; }
+.studio-preview-toggle { justify-self: start; }
+.studio-preview { padding: 14px; border: 1px solid var(--border); font: 1.2rem/1.76 Georgia, serif; }
+.studio-confirm { padding: 12px; border-left: 3px solid var(--gold); }
+.studio-confirm p { margin-bottom: 8px; }
+.studio-copy { margin-bottom: 16px; }
+.studio-copy button { margin-top: 6px; }
+.studio-panel [role="alert"] { color: #851f22; }
+@media (max-width: 760px) { .studio-layout { grid-template-columns: 1fr; } }

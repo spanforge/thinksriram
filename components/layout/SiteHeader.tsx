@@ -4,7 +4,7 @@ import Image from 'next/image';
 import { usePathname } from 'next/navigation';
 import { useEffect, useRef, useState } from 'react';
 import config from '@/content/publication.json';
-const links = [['Home', '/'], ['Writing', '/writing'], ['Topics', '/topics'], ['About', '/about']];
+const links = [['Home', '/'], ['Start Here', '/start-here'], ['Writing', '/writing'], ['Books', '/books'], ['Topics', '/topics'], ['About', '/about']];
 export function SiteHeader() {
   const [open, setOpen] = useState(false);
   const current = usePathname();

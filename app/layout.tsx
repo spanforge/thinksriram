@@ -2,7 +2,7 @@ import type { Metadata } from 'next';
 import './globals.css';
 import { SiteHeader } from '@/components/layout/SiteHeader';
 import { SiteFooter } from '@/components/layout/SiteFooter';
-import { site, base } from '@/lib/site';
+import { authorName, site, base } from '@/lib/site';
 import { publication } from '@/lib/publication';
 import { PublicationAnalytics } from '@/components/PublicationAnalytics';
 export const dynamic = 'force-dynamic';
@@ -17,7 +17,7 @@ export const metadata: Metadata = {
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   const schema = {
     '@context': 'https://schema.org', '@graph': [
-      { '@type': 'Person', '@id': base + '/about#sriram', name: 'Sriram', url: base + '/about', sameAs: [site.linkedin] },
+      { '@type': 'Person', '@id': base + '/about#sriram', name: authorName, url: base + '/about', sameAs: [site.linkedin] },
       { '@type': 'WebSite', '@id': base + '/#website', name: site.title, url: base, description: publication.description, author: { '@id': base + '/about#sriram' } }
     ]
   };

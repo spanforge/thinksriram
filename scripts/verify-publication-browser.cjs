@@ -22,7 +22,9 @@ const origin=process.env.SITE_URL||'http://localhost:3106';
       await toggle.click();
      }
      assert.equal(await nav.getByRole('link',{name:'Subscribe'}).getAttribute('href'),'https://thinksriram.substack.com/subscribe');
-     assert.equal(await nav.locator('a').count(),5);
+     assert.equal(await nav.getByRole('link',{name:'Books',exact:true}).getAttribute('href'),'/books');
+     assert.equal(await nav.getByRole('link',{name:'Start Here',exact:true}).getAttribute('href'),'/start-here');
+     assert.equal(await nav.locator('a').count(),7);
      if(width<=900)await page.keyboard.press('Escape');
      await page.locator('.footer-primary-logo').scrollIntoViewIfNeeded();
      await page.locator('.footer-primary-logo').evaluate(el=>el.decode());
@@ -31,7 +33,8 @@ const origin=process.env.SITE_URL||'http://localhost:3106';
     }
    }
    await page.goto(origin+'/writing');
-   await page.getByRole('combobox',{name:'Editorial pillar'}).selectOption('lifelong-learning');
+   await page.locator('.archive-filter-details summary').click();
+   await page.getByRole('combobox',{name:'Topic'}).selectOption('lifelong-learning');
    await page.getByRole('button',{name:'Search',exact:true}).click();await page.waitForURL('**/writing?**');
    assert(await page.locator('.editorial-card').count()>=1);
    assert((await page.locator('.editorial-card').allTextContents()).join(' ').includes('Socrates'));

@@ -2,6 +2,7 @@ import settings from '@/content/site.json';
 import shelf from '@/content/reading.json';
 import { ContentItem } from './content';
 export const site = settings;
+export const authorName = 'Sriram Srinivasan';
 export const topics = [
  {slug:'work-and-organizations',label:'Work & Organizations',description:'How teams and organizations work: systems thinking, leadership, collective intelligence and the relationships that shape performance.'},
  {slug:'careers',label:'Careers',description:'The choices that shape a working life. I’m interested in what makes a path meaningful, beyond its milestones.'},

@@ -1,5 +1,7 @@
 import fs from "node:fs";
 import path from "node:path";
+import { cleanImportedText } from "./markdown";
+export { cleanImportedText, renderMarkdown } from "./markdown";
 
 export type ContentType = "story" | "idea" | "mental-model" | "classic";
 
@@ -14,11 +16,12 @@ export type ContentItem = {
   updatedAt?: string;
   correction?: string;
   sources?: string[];
+  sourceLabels?: Record<string, string>;
   publishedAt: string;
   excerpt: string;
   description: string;
   readingTime: number;
-  genre?: "Essay" | "Reflection" | "Story";
+  genre?: "Essay" | "Reflection" | "Story" | "Thinking exercise";
   editorialNote?: string;
   readerNeeds: string[];
   themes: string[];
@@ -92,6 +95,9 @@ function readContentFile(filePath: string): ContentItem | undefined {
   const body = cleanImportedText(parsed.body);
   const defaults = readTextFile(filePath, typeof data.title === "string" ? `${data.title}\n\n${body}` : body);
   if (!defaults) return undefined;
+  const sourceEntries = Array.isArray(data.sources)
+    ? data.sources.filter((source): source is string => typeof source === "string").map(source => source.split(" | "))
+    : [];
   return {
     ...defaults,
     title: typeof data.title === "string" ? data.title : defaults.title,
@@ -102,7 +108,8 @@ function readContentFile(filePath: string): ContentItem | undefined {
     tags: Array.isArray(data.tags) ? data.tags as string[] : [],
     updatedAt: typeof data.updatedAt === "string" ? data.updatedAt : undefined,
     correction: typeof data.correction === "string" ? data.correction : undefined,
-    sources: Array.isArray(data.sources) ? data.sources as string[] : [],
+    sources: sourceEntries.map(([url]) => url),
+    sourceLabels: Object.fromEntries(sourceEntries.filter(([, label]) => label)),
     status: (data.status || "published") as ContentItem["status"],
     publishedAt: typeof data.publishedAt === "string" ? data.publishedAt : defaults.publishedAt,
     excerpt: typeof data.excerpt === "string" ? data.excerpt : defaults.excerpt,
@@ -157,10 +164,18 @@ function articleFiles(dir: string): string[] {
   });
 }
 
-export function getAllContent() {
-  const items = articleFiles(contentRoot)
+function readArchive() {
+  return articleFiles(contentRoot)
     .map(file => /\.txt$/i.test(file) ? readTextFile(file) : readContentFile(file))
-    .filter((item): item is ContentItem => Boolean(item))
+    .filter((item): item is ContentItem => Boolean(item));
+}
+
+export function archiveHasSlug(slug: string) {
+  return readArchive().some(item => item.slug === slug);
+}
+
+export function getAllContent() {
+  const items = readArchive()
     .filter((item) => item.status === "published" && Number.isFinite(+new Date(item.publishedAt)) && +new Date(item.publishedAt) <= Date.now())
     .sort((a, b) => +new Date(b.publishedAt) - +new Date(a.publishedAt));
   const slugs = new Set<string>();
@@ -224,47 +239,6 @@ export function formatMonth(date: string) {
 
 export function contentHref(item: ContentItem) {
   return `/writing/${item.slug}`;
-}
-
-export function cleanImportedText(body: string) {
-  return body.replace(/<\/?(?:w|w14|wp|a|v|o):[^>]*>/g, "")
-    .replace(/^Practical Exercises\s*$/gm, "## Practical exercises")
-    .replace(/^Closing Reflection\s*$/gm, "## Closing reflection")
-    .replace(/ -- /g, " — ");
-}
-
-export function renderMarkdown(body: string) {
-  const lines = cleanImportedText(body).replace(/\r\n?/g, "\n").split("\n");
-  const blocks: { type: string; text: string }[] = [];
-  const special = (line: string) => /^(?:#{1,6}\s|>\s|[-*]\s|\d+\.\s|::verse)/.test(line.trim());
-  for (let i = 0; i < lines.length; i++) {
-    const line = lines[i].trim();
-    if (!line) continue;
-    if (line === "::verse") {
-      const verse: string[] = [];
-      while (++i < lines.length && lines[i].trim() !== "::") verse.push(lines[i]);
-      blocks.push({ type: "verse", text: verse.join("\n").trim() });
-    } else if (/^(?:-{3,}|\*{3,}|_{3,})$/.test(line)) {
-      blocks.push({ type: "hr", text: "" });
-    } else if (/^#{1,6}\s/.test(line)) {
-      blocks.push({ type: line.startsWith("###") ? "h3" : "h2", text: line.replace(/^#{1,6}\s+/, "") });
-    } else if (/^>\s/.test(line)) {
-      const quotes = [line.replace(/^>\s*/, "")];
-      while (i + 1 < lines.length && /^>\s/.test(lines[i + 1].trim())) quotes.push(lines[++i].trim().replace(/^>\s*/, ""));
-      blocks.push({ type: "quote", text: quotes.join(" ") });
-    } else if (/^(?:[-*]\s|\d+\.\s)/.test(line)) {
-      const ordered = /^\d+\.\s/.test(line);
-      const pattern = ordered ? /^\d+\.\s/ : /^[-*]\s/;
-      const items = [line];
-      while (i + 1 < lines.length && pattern.test(lines[i + 1].trim())) items.push(lines[++i].trim());
-      blocks.push({ type: ordered ? "ol" : "ul", text: items.join("\n") });
-    } else {
-      const paragraph = [line];
-      while (i + 1 < lines.length && lines[i + 1].trim() && !special(lines[i + 1])) paragraph.push(lines[++i].trim());
-      blocks.push({ type: "p", text: paragraph.join(" ") });
-    }
-  }
-  return blocks;
 }
 
 export const readerNeeds = [

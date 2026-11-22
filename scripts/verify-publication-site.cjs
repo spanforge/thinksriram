@@ -10,6 +10,17 @@ async function html(route){const r=await fetch(origin+route);assert.equal(r.stat
   assert(home.includes('https://thinksriram.substack.com/p/why-earning-more-money-doesnt-always'));
   const nav=home.match(/<nav id="primary-nav"[\s\S]*?<\/nav>/)[0];
   assert(!nav.includes('/careers'));assert(!nav.includes('/series'));
+  assert(nav.includes('href="/start-here"'));
+  const start=await html('/start-here');
+  assert(start.includes('href="https://thinksriram.com/start-here"'));
+  assert(start.includes('href="/books/think-beyond-ai/introduction"'));
+  for(const slug of ['why-talented-teams-underperform','socrates-and-the-art-of-the-right-question','aristotle-and-the-judgment-that-cannot-be-automated','reverse-regret-test','the-slower-answer']){
+    assert(start.includes(`href="/writing/${slug}"`),slug);
+    const article=await html('/writing/'+slug);
+    assert(article.includes('By Sriram Srinivasan'),slug);
+    assert(article.includes('id="read-next"')&&article.includes('See the full reading path'),slug);
+    assert(article.includes('href="/books/think-beyond-ai/chapter-'),slug);
+  }
   for(const p of ['future-of-careers','career-intelligence','lifelong-learning','better-life-and-decisions','ideas-and-perspectives']){
     const topic=await html('/topics/'+p);assert(topic.includes('Read Article'));assert((await html('/writing?topic='+p)).includes('Read Article'));
   }

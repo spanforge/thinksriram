@@ -23,9 +23,9 @@ export default async function Writing({ searchParams }: { searchParams: Promise<
   const page = Math.min(pages, Math.max(1, Math.floor(Number(value('page'))) || 1));
   const href = (number: number) => '/writing?' + new URLSearchParams({ q: query, topic, year, series, page: String(number) });
   const seriesOptions = [...new Set(local.map(p => p.series).filter((s): s is string => !!s))].map(label => ({ label, slug: seriesSlug(label) }));
-  return <div className="shell page-content"><header className="page-heading"><p className="eyebrow">THE EDITORIAL ARCHIVE</p><h1>Writing</h1><p>Research-informed perspectives, practical ideas, and reflective essays. Original publication dates are retained; new Substack pieces link to the original.</p><Link href="/series">Explore series in reading order →</Link></header>
+  return <div className="shell page-content writing-archive"><header className="page-heading"><h1>Writing</h1><p>Essays and analysis on work, technology, learning, and better decisions.</p></header>
     <ArchiveFilters query={query} topic={topic} year={year} series={series} topics={pillars} years={[...new Set(all.map(a => a.publishedAt.slice(0, 4)))]} seriesOptions={seriesOptions} />
-    <p className="result-count" role="status">{filtered.length} {filtered.length === 1 ? 'article' : 'articles'}{query && ' matching “' + query + '”'}</p>
+    <div className="writing-archive-links"><p className="result-count" role="status">{filtered.length} {filtered.length === 1 ? 'article' : 'articles'}{query && ` matching “${query}”`}</p><Link href="/series">Browse series</Link></div>
     {filtered.length ? <EditorialCards headingLevel={2} articles={filtered.slice((page - 1) * 10, page * 10)} /> : <div className="empty-note"><p>No articles match these choices.</p><Link href="/writing">View all writing</Link></div>}
     {filtered.length > 0 && <nav className="pagination" aria-label="Archive pages">{page > 1 ? <Link href={href(page - 1)} rel="prev">← Newer writing</Link> : <span />}<span>Page {page} of {pages}</span>{page < pages ? <Link href={href(page + 1)} rel="next">Older writing →</Link> : <span />}</nav>}
   </div>;
