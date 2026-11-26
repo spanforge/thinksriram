@@ -11,6 +11,7 @@
     "export:content": "node scripts/export-content.cjs",
     "verify:site": "node scripts/verify-site.cjs",
     "verify:books": "node scripts/verify-books.cjs",
+    "verify:human-advantage": "node scripts/verify-human-advantage.cjs",
     "verify:review": "node scripts/verify-review.cjs",
     "verify:review-site": "node scripts/verify-review-site.cjs",
     "verify:career": "node scripts/verify-career.cjs",

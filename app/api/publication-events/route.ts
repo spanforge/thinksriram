@@ -1,5 +1,8 @@
 import { NextRequest } from 'next/server';
-const events = new Set(['article_view', 'subscribe_click', 'substack_click']);
+const events = new Set([
+  'article_view', 'subscribe_click', 'substack_click',
+  'project_view', 'resource_view', 'capability_view', 'collection_view', 'book_click', 'resource_search',
+]);
 export async function POST(request: NextRequest) {
   if (process.env.NEXT_PUBLIC_PUBLICATION_ANALYTICS !== 'true') return new Response(null, { status: 204 });
   if (request.headers.get('origin') !== request.nextUrl.origin) return new Response(null, { status: 403 });

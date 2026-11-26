@@ -112,7 +112,7 @@ p { margin: 0 0 24px; }
 .correction { background: var(--surface); border-left: 4px solid var(--link); padding: 24px; font-size: 1rem; }
 .not-found { min-height: 45vh; }
 a:focus-visible, button:focus-visible, select:focus-visible { color: #123047; background: var(--focus); outline: 3px solid #123047; outline-offset: 3px; }
-@media (max-width: 900px) {
+@media (max-width: 1010px) {
   .header-inner { min-height: 112px; flex-wrap: wrap; gap: 0; }
   .site-logo { width: 112px; }
   .menu-toggle { display: flex; align-items: center; gap: 16px; min-height: 48px; background: var(--page-bg); border: 2px solid var(--input-border); border-radius: 3px; padding: 8px 16px; color: var(--heading); font-size: 1rem; cursor: pointer; }
@@ -320,8 +320,8 @@ input:focus-visible, textarea:focus-visible { outline: 3px solid var(--focus); o
 .topic-pillar-grid .topic-section > a { display: inline-flex; align-items: center; min-height: 44px; margin-top: 16px; font-size: 1rem; }
 a:focus-visible, button:focus-visible, select:focus-visible { background: #e4b74a; color: #10243a; outline-color: #10243a; }
 @media (max-width: 1050px) { .editorial-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
-@media (min-width: 901px) and (max-width: 1050px) { .nav { column-gap: 14px; } }
-@media (max-width: 900px) {
+@media (min-width: 1011px) and (max-width: 1120px) { .nav { column-gap: 14px; } }
+@media (max-width: 1010px) {
   .header-inner { min-height: 96px; }
   .nav { align-items: stretch; }
   .nav .nav-subscribe { align-self: flex-start; margin: 8px; }

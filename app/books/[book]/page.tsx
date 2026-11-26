@@ -3,6 +3,7 @@ import { notFound } from 'next/navigation';
 import { BookContents, BookCover } from '@/components/BookReader';
 import { BookReadingActions } from '@/components/BookReadingProgress';
 import { bookMetadata, bookPath, getBook } from '@/lib/books';
+import { projectBooks, projectBookPath } from '@/lib/human-advantage';
 
 type Props = { params: Promise<{ book: string }> };
 
@@ -32,6 +33,11 @@ export default async function BookPage({ params }: Props) {
         </div>
       </div>
     </header>
+    {projectBooks.some(entry => entry.slug === book.slug) && <section className="book-contents" aria-labelledby="book-project">
+      <h2 id="book-project">Explore The Human Advantage Project</h2>
+      <p>Explore this book’s companion materials and recommended reading through the free learning initiative.</p>
+      <Link href={projectBookPath(book.slug)}>Explore this book’s learning hub</Link>
+    </section>}
     <section className="book-contents" aria-labelledby="book-contents">
       <h2 id="book-contents">Contents</h2>
       <BookContents book={book} />

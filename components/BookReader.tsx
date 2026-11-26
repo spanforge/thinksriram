@@ -147,7 +147,7 @@ export function BookText({ book, section }: { book: Book; section: BookSection }
         const sourceGroup = section.slug === 'references'
           ? item.runs.map(run => run.text).join('').match(/^(Introduction|Chapter \d+):/)?.[1]
           : undefined;
-        items.push(<li key={index} id={sourceGroup?.toLowerCase().replace(' ', '-')}>{inline(item.runs)}</li>);
+        items.push(<li key={index} id={item.id ?? sourceGroup?.toLowerCase().replace(' ', '-')}>{inline(item.runs)}</li>);
         index++;
       }
       index--;

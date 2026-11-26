@@ -1,5 +1,6 @@
 import type { Metadata } from 'next';
 import thinkBeyondAI from '@/content/books/think-beyond-ai.json';
+import beforeYouReachAConclusion from '@/content/books/before-you-reach-a-conclusion.json';
 
 export type BookRun = {
   text: string;
@@ -48,7 +49,7 @@ type Book = {
   sections: BookSection[];
 };
 
-export const books = [thinkBeyondAI as Book];
+export const books = [thinkBeyondAI as Book, beforeYouReachAConclusion as Book];
 
 export function getBook(slug: string) {
   return books.find(book => book.slug === slug);

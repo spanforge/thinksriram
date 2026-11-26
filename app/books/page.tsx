@@ -5,7 +5,7 @@ import { bookPath, books } from '@/lib/books';
 
 export const metadata: Metadata = {
   title: 'Books',
-  description: 'Read the Think Sriram Short Reads online, starting with Think Beyond AI by Sriram Srinivasan.',
+  description: 'Read books by Sriram Srinivasan online for free, including Think Beyond AI and Before You Reach a Conclusion.',
   alternates: { canonical: '/books' },
 };
 
@@ -20,7 +20,8 @@ export default function BooksPage() {
         <p className="book-subtitle">{book.subtitle}</p>
         <p className="book-byline">{book.author}</p>
         <p>{book.description}</p>
-        <div className="book-actions"><Link className="book-primary" href={bookPath(book)}>Explore the book</Link></div>
+        <div className="book-actions"><Link className="book-primary" href={bookPath(book)}
+          aria-label={`Explore the book: ${book.title}`}>Explore the book</Link></div>
       </div>
     </article>)}
   </div>;
