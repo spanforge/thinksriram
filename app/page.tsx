@@ -3,13 +3,13 @@ import { editorialArticles, latestThinking, pillars, publication } from '@/lib/p
 import { EditorialCards } from '@/components/EditorialCards';
 import { NewsletterSignup } from '@/components/NewsletterSignup';
 import { BookCover } from '@/components/BookReader';
-import { books, bookPath } from '@/lib/books';
+import { bookPath, getBook } from '@/lib/books';
 import { formatDate } from '@/lib/content';
 export const metadata = { title: { absolute: 'Think Sriram | Better Careers, Brighter Futures' }, description: publication.description, alternates: { canonical: '/' } };
 export default function Home() {
   const latest = latestThinking();
   const featured = latest.find(article => article.url.startsWith('/')) ?? editorialArticles().find(article => article.url.startsWith('/'));
-  const book = books[0];
+  const book = getBook('before-you-reach-a-conclusion');
   return <>
     <section className="publication-hero"><div className="shell">
       <p className="eyebrow">AN INDEPENDENT PUBLICATION</p>
@@ -26,10 +26,13 @@ export default function Home() {
         {book && <article className="home-feature home-book">
           <BookCover book={book} />
           <div>
-            <p className="eyebrow">Read the book online</p>
-            <h2><Link href={bookPath(book)}>{book.title}</Link></h2>
-            <p className="home-feature-description">{book.subtitle}</p>
-            <Link className="home-feature-link" href={bookPath(book)}>Explore the book</Link>
+            <p className="eyebrow">New book</p>
+            <h2>{book.title}</h2>
+            <p className="home-feature-description">Explore how beliefs take shape, how evidence can mislead, and when you’ve examined a conclusion enough to act.</p>
+            <div className="home-book-actions">
+              <Link className="home-feature-link" href={bookPath(book)}>Read free online</Link>
+              <Link href="/books">Browse all books</Link>
+            </div>
           </div>
         </article>}
       </div>

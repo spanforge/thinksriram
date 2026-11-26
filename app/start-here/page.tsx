@@ -1,20 +1,23 @@
 import type { Metadata } from 'next';
 import Link from 'next/link';
 import { BookCover } from '@/components/BookReader';
-import { bookPath, books } from '@/lib/books';
+import { bookPath, getBook } from '@/lib/books';
 import { contentHref, getAllContent } from '@/lib/content';
 import { articleKind } from '@/lib/discovery';
 import { readingPath } from '@/lib/reading-path';
 
 export const metadata: Metadata = {
   title: 'Start Here',
-  description: 'Five short reads from Think Sriram on how to think clearly, work with others, and make better decisions.',
+  description: 'Five short reads and two free books from Think Sriram on how to think clearly, work with others, and make better decisions.',
   alternates: { canonical: '/start-here' },
 };
 
 export default function StartHere() {
   const articles = getAllContent();
-  const book = books[0];
+  const longerReads = [
+    { slug: 'think-beyond-ai', blurb: 'Choose this if you want to use AI while developing your own reasoning and judgment. Includes a 30-day practice challenge.' },
+    { slug: 'before-you-reach-a-conclusion', blurb: 'Choose this if you want to examine your beliefs, weigh evidence, and make decisions under uncertainty. Includes two practical appendices.' },
+  ];
   return <div className="shell page-content start-here">
     <header className="page-heading">
       <h1>Start Here</h1>
@@ -31,13 +34,22 @@ export default function StartHere() {
         </li>;
       })}
     </ol>
-    <section className="home-feature home-book start-here-book" aria-labelledby="longer-read">
-      <BookCover book={book} />
-      <div>
-        <p className="eyebrow">The longer read</p>
-        <h2 id="longer-read"><Link href={bookPath(book)}>{book.title}</Link></h2>
-        <p>Develop your own reasoning and judgment with ten chapters and a 30-day practice challenge.</p>
-        <Link className="home-feature-link" href={bookPath(book, 'introduction')}>Read the introduction</Link>
+    <section aria-labelledby="longer-reads">
+      <h2 id="longer-reads">Longer reads</h2>
+      <div className="start-here-books">
+        {longerReads.map(({ slug, blurb }) => {
+          const book = getBook(slug);
+          if (!book) return null;
+          return <article key={slug} className="home-feature home-book start-here-book">
+            <BookCover book={book} />
+            <div>
+              <h3><Link href={bookPath(book)}>{book.title}</Link></h3>
+              <p className="home-feature-description">{blurb}</p>
+              <Link className="home-feature-link" href={bookPath(book, 'introduction')}
+                aria-label={`Read the introduction to ${book.title}`}>Read the introduction</Link>
+            </div>
+          </article>;
+        })}
       </div>
     </section>
     <p className="start-here-archive"><Link href="/writing">Browse the full writing archive</Link></p>
